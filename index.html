@@ -1,0 +1,5177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- ============================================= -->
+    <!-- Website Romantis untuk Nadia ❤️               -->
+    <!-- Surat Cinta Digital yang Menyentuh Hati       -->
+    <!-- ============================================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Nadia ❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================= */
+        /* CSS RESET & BASE STYLES                       */
+        /* ============================================= */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: #e74c6f #1a0a0e;
+        }
+
+        html::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: #1a0a0e;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #e74c6f, #c0392b);
+            border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5e6e8;
+            overflow-x: hidden;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        /* ============================================= */
+        /* PRELOADER                                     */
+        /* ============================================= */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #1a0510 0%, #0a0a0a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-heart {
+            font-size: 60px;
+            animation: preloaderPulse 1s ease-in-out infinite;
+        }
+
+        .preloader-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: #e74c6f;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .preloader-bar-container {
+            width: 200px;
+            height: 3px;
+            background: rgba(231, 76, 111, 0.2);
+            border-radius: 10px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .preloader-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #e74c6f, #ff6b9d, #e74c6f);
+            border-radius: 10px;
+            animation: loadingBar 2.5s ease forwards;
+        }
+
+        @keyframes loadingBar {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes preloaderPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* ============================================= */
+        /* NAVIGATION                                    */
+        /* ============================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.5s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 5, 8, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 30px rgba(231, 76, 111, 0.15);
+            padding: 10px 30px;
+        }
+
+        .nav-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: #e74c6f;
+            text-decoration: none;
+            text-shadow: 0 0 20px rgba(231, 76, 111, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            text-shadow: 0 0 30px rgba(231, 76, 111, 0.8);
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #f5e6e8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #e74c6f, #ff6b9d);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e74c6f;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: #e74c6f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: rgba(10, 5, 8, 0.98);
+            backdrop-filter: blur(30px);
+            padding: 100px 40px 40px;
+            transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 999;
+            border-left: 1px solid rgba(231, 76, 111, 0.2);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: #f5e6e8;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(231, 76, 111, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #e74c6f;
+            padding-left: 15px;
+        }
+
+        /* ============================================= */
+        /* MUSIC CONTROL BUTTON                          */
+        /* ============================================= */
+        .music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e74c6f, #c0392b);
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 25px rgba(231, 76, 111, 0.4);
+            transition: all 0.3s ease;
+            animation: musicBtnPulse 2s ease-in-out infinite;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 35px rgba(231, 76, 111, 0.6);
+        }
+
+        @keyframes musicBtnPulse {
+            0%, 100% { box-shadow: 0 5px 25px rgba(231, 76, 111, 0.4); }
+            50% { box-shadow: 0 5px 35px rgba(231, 76, 111, 0.7); }
+        }
+
+        .music-bars {
+            display: flex;
+            gap: 3px;
+            align-items: flex-end;
+            height: 20px;
+        }
+
+        .music-bar {
+            width: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: height 0.3s ease;
+        }
+
+        .music-btn.playing .music-bar:nth-child(1) { animation: musicBarAnim 0.5s ease-in-out infinite alternate; height: 8px; }
+        .music-btn.playing .music-bar:nth-child(2) { animation: musicBarAnim 0.5s ease-in-out infinite alternate 0.1s; height: 14px; }
+        .music-btn.playing .music-bar:nth-child(3) { animation: musicBarAnim 0.5s ease-in-out infinite alternate 0.2s; height: 10px; }
+        .music-btn.playing .music-bar:nth-child(4) { animation: musicBarAnim 0.5s ease-in-out infinite alternate 0.3s; height: 16px; }
+
+        .music-btn:not(.playing) .music-bar { height: 3px !important; animation: none !important; }
+
+        @keyframes musicBarAnim {
+            0% { height: 5px; }
+            100% { height: 18px; }
+        }
+
+        /* ============================================= */
+        /* FLOATING HEARTS                               */
+        /* ============================================= */
+        .floating-hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            animation: floatHeart linear infinite;
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                opacity: 0;
+                transform: translateY(0) translateX(0) rotate(0deg) scale(0.5);
+            }
+            10% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.6;
+                transform: translateY(-50vh) translateX(30px) rotate(180deg) scale(1);
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-110vh) translateX(-20px) rotate(360deg) scale(0.3);
+            }
+        }
+
+        /* ============================================= */
+        /* PARTICLE BACKGROUND                           */
+        /* ============================================= */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ============================================= */
+        /* SECTION BASE STYLES                           */
+        /* ============================================= */
+        section {
+            position: relative;
+            z-index: 2;
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 52px);
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e74c6f, #ff6b9d, #f7a1b5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(18px, 3vw, 26px);
+            text-align: center;
+            color: rgba(245, 230, 232, 0.6);
+            margin-bottom: 60px;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .section-divider .line {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e74c6f, transparent);
+        }
+
+        .section-divider .icon {
+            color: #e74c6f;
+            font-size: 18px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* ============================================= */
+        /* SCROLL REVEAL ANIMATION                       */
+        /* ============================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ============================================= */
+        /* HERO SECTION                                  */
+        /* ============================================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 20px 80px;
+            background: radial-gradient(ellipse at 30% 50%, rgba(139, 30, 63, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 30%, rgba(231, 76, 111, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 80%, rgba(192, 57, 43, 0.1) 0%, transparent 50%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e74c6f' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 25px;
+            background: rgba(231, 76, 111, 0.1);
+            border: 1px solid rgba(231, 76, 111, 0.3);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #e74c6f;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 8vw, 90px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #e74c6f 0%, #ff6b9d 30%, #f7a1b5 50%, #ff6b9d 70%, #e74c6f 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s ease infinite, fadeInUp 1.2s ease forwards;
+            opacity: 0;
+            text-shadow: none;
+            filter: drop-shadow(0 0 30px rgba(231, 76, 111, 0.3));
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .hero-heart {
+            display: inline-block;
+            font-size: clamp(36px, 6vw, 70px);
+            animation: heartBeat 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(231, 76, 111, 0.6));
+            -webkit-text-fill-color: initial;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.25); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+        }
+
+        .hero-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(18px, 3vw, 28px);
+            color: rgba(245, 230, 232, 0.85);
+            max-width: 650px;
+            margin: 30px auto 0;
+            line-height: 1.9;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards 0.6s;
+        }
+
+        .typing-text {
+            display: inline;
+            border-right: 2px solid #e74c6f;
+            animation: blink-caret 0.8s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #e74c6f; }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.2s;
+        }
+
+        .glow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #e74c6f, #c0392b);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(231, 76, 111, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .glow-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .glow-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(231, 76, 111, 0.6);
+        }
+
+        .glow-btn:hover::before {
+            left: 100%;
+        }
+
+        .glow-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: transparent;
+            color: #e74c6f;
+            border: 2px solid rgba(231, 76, 111, 0.5);
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .glow-btn-outline:hover {
+            background: rgba(231, 76, 111, 0.1);
+            border-color: #e74c6f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 30px rgba(231, 76, 111, 0.2);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.8s;
+        }
+
+        .scroll-indicator span {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(245, 230, 232, 0.4);
+        }
+
+        .scroll-mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid rgba(231, 76, 111, 0.4);
+            border-radius: 13px;
+            position: relative;
+        }
+
+        .scroll-mouse::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 8px;
+            background: #e74c6f;
+            border-radius: 3px;
+            animation: scrollWheel 2s ease infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 24px; }
+        }
+
+        /* ============================================= */
+        /* SECTION: PERASAAN (FEELINGS)                  */
+        /* ============================================= */
+        .perasaan-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #120810 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .perasaan-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(231, 76, 111, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .perasaan-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .perasaan-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(18px, 2.5vw, 24px);
+            line-height: 2;
+            color: rgba(245, 230, 232, 0.85);
+            text-align: center;
+            margin-bottom: 50px;
+            font-style: italic;
+            position: relative;
+            padding: 40px;
+        }
+
+        .perasaan-text::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            color: rgba(231, 76, 111, 0.15);
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            line-height: 1;
+        }
+
+        .perasaan-text::after {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            color: rgba(231, 76, 111, 0.15);
+            position: absolute;
+            bottom: -60px;
+            right: 10px;
+            line-height: 1;
+        }
+
+        .perasaan-highlight {
+            color: #e74c6f;
+            font-weight: 600;
+        }
+
+        .perasaan-emoji {
+            display: block;
+            text-align: center;
+            font-size: 40px;
+            margin: 30px 0;
+            filter: drop-shadow(0 0 10px rgba(231, 76, 111, 0.3));
+        }
+
+        /* ============================================= */
+        /* SECTION: SASTRA CINTA                         */
+        /* ============================================= */
+        .sastra-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0d0508 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .sastra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sastra-card {
+            background: linear-gradient(135deg, rgba(231, 76, 111, 0.08), rgba(192, 57, 43, 0.05));
+            border: 1px solid rgba(231, 76, 111, 0.12);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sastra-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e74c6f, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .sastra-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(231, 76, 111, 0.3);
+            box-shadow: 0 20px 60px rgba(231, 76, 111, 0.1);
+        }
+
+        .sastra-card:hover::before {
+            opacity: 1;
+        }
+
+        .sastra-card-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .sastra-card-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            line-height: 1.9;
+            color: rgba(245, 230, 232, 0.8);
+            font-style: italic;
+        }
+
+        .sastra-card-author {
+            display: block;
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 16px;
+            color: #e74c6f;
+        }
+
+        /* ============================================= */
+        /* SECTION: MOTIVASI                             */
+        /* ============================================= */
+        .motivasi-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #100a0d 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .motivasi-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(231, 76, 111, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .motivasi-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .motivasi-item {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(231, 76, 111, 0.05), rgba(10, 10, 10, 0.5));
+            border-left: 3px solid #e74c6f;
+            border-radius: 0 15px 15px 0;
+            transition: all 0.4s ease;
+        }
+
+        .motivasi-item:hover {
+            transform: translateX(10px);
+            background: linear-gradient(135deg, rgba(231, 76, 111, 0.1), rgba(10, 10, 10, 0.5));
+            box-shadow: 0 10px 40px rgba(231, 76, 111, 0.08);
+        }
+
+        .motivasi-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .motivasi-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.8;
+            color: rgba(245, 230, 232, 0.85);
+        }
+
+        .motivasi-text strong {
+            color: #e74c6f;
+            font-weight: 600;
+        }
+
+        /* ============================================= */
+        /* SECTION: KATA-KATA CINTA                      */
+        /* ============================================= */
+        .kata-cinta-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0d070a 50%, #0a0a0a 100%);
+        }
+
+        .kata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .kata-card {
+            background: linear-gradient(145deg, rgba(20, 10, 15, 0.9), rgba(30, 15, 20, 0.7));
+            border: 1px solid rgba(231, 76, 111, 0.1);
+            border-radius: 20px;
+            padding: 35px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            cursor: default;
+        }
+
+        .kata-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(231, 76, 111, 0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .kata-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(231, 76, 111, 0.3);
+            box-shadow: 0 20px 50px rgba(231, 76, 111, 0.12);
+        }
+
+        .kata-card:hover::before {
+            opacity: 1;
+        }
+
+        .kata-card-emoji {
+            font-size: 36px;
+            margin-bottom: 18px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kata-card-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(245, 230, 232, 0.85);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kata-card-number {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            font-weight: 700;
+            color: rgba(231, 76, 111, 0.06);
+            line-height: 1;
+        }
+
+        /* ============================================= */
+        /* SECTION: SURAT CINTA                          */
+        /* ============================================= */
+        .surat-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #100810 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .surat-container {
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .surat-envelope {
+            background: linear-gradient(145deg, rgba(25, 12, 18, 0.95), rgba(15, 8, 12, 0.98));
+            border: 1px solid rgba(231, 76, 111, 0.15);
+            border-radius: 25px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(231, 76, 111, 0.1);
+        }
+
+        .surat-envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e74c6f, #ff6b9d, #e74c6f);
+        }
+
+        .surat-envelope::after {
+            content: '💌';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            opacity: 0.5;
+        }
+
+        .surat-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .surat-date {
+            font-family: 'Dancing Script', cursive;
+            font-size: 16px;
+            color: rgba(231, 76, 111, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .surat-greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(28px, 4vw, 40px);
+            color: #e74c6f;
+            text-shadow: 0 0 30px rgba(231, 76, 111, 0.3);
+        }
+
+        .surat-body {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(17px, 2.2vw, 20px);
+            line-height: 2.2;
+            color: rgba(245, 230, 232, 0.85);
+            text-align: left;
+        }
+
+        .surat-body p {
+            margin-bottom: 25px;
+            text-indent: 30px;
+        }
+
+        .surat-body p:first-child {
+            text-indent: 0;
+        }
+
+        .surat-closing {
+            text-align: right;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(231, 76, 111, 0.1);
+        }
+
+        .surat-closing p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 20px;
+            color: rgba(245, 230, 232, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .surat-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: #e74c6f;
+            text-shadow: 0 0 20px rgba(231, 76, 111, 0.3);
+        }
+
+        .surat-wax-seal {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .wax-seal {
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle at 35% 35%, #e74c6f, #8b1e3f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 5px 20px rgba(139, 30, 63, 0.5),
+                        inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+                        inset 0 3px 6px rgba(255, 255, 255, 0.1);
+            transform: rotate(-15deg);
+        }
+
+        /* ============================================= */
+        /* SECTION: HARAPAN MASA DEPAN (TIMELINE)        */
+        /* ============================================= */
+        .timeline-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0e080b 50%, #0a0a0a 100%);
+        }
+
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, #e74c6f, transparent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+            padding-right: calc(50% + 40px);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            padding-left: calc(50% + 40px);
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #e74c6f, #c0392b);
+            border-radius: 50%;
+            border: 3px solid #0a0a0a;
+            box-shadow: 0 0 20px rgba(231, 76, 111, 0.4);
+            z-index: 2;
+        }
+
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(231, 76, 111, 0.3);
+            border-radius: 50%;
+            animation: timelinePulse 2s ease infinite;
+        }
+
+        @keyframes timelinePulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #e74c6f;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-family: 'Dancing Script', cursive;
+            font-size: 17px;
+            color: rgba(245, 230, 232, 0.7);
+            line-height: 1.7;
+        }
+
+        .timeline-emoji {
+            font-size: 24px;
+            display: block;
+            margin-top: 8px;
+        }
+
+        /* ============================================= */
+        /* SECTION: KEJUTAN (SURPRISE)                   */
+        /* ============================================= */
+        .kejutan-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #100a0e 50%, #0a0a0a 100%);
+        }
+
+        .kejutan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .kejutan-card {
+            background: linear-gradient(145deg, rgba(20, 10, 15, 0.9), rgba(30, 15, 22, 0.7));
+            border: 1px solid rgba(231, 76, 111, 0.12);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .kejutan-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(231, 76, 111, 0.3);
+            box-shadow: 0 15px 50px rgba(231, 76, 111, 0.1);
+        }
+
+        .kejutan-card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .kejutan-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #e74c6f;
+            margin-bottom: 15px;
+        }
+
+        .kejutan-card-desc {
+            font-size: 14px;
+            color: rgba(245, 230, 232, 0.6);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* Quote Display */
+        .quote-display {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quote-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 18px;
+            color: rgba(245, 230, 232, 0.85);
+            font-style: italic;
+            line-height: 1.7;
+            transition: all 0.5s ease;
+        }
+
+        /* Semangat Button */
+        .semangat-result {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .semangat-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: rgba(245, 230, 232, 0.8);
+            line-height: 1.7;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+
+        .semangat-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Countdown */
+        .countdown-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 65px;
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #e74c6f;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(231, 76, 111, 0.4);
+        }
+
+        .countdown-label {
+            font-size: 11px;
+            color: rgba(245, 230, 232, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* ============================================= */
+        /* SECTION: FIREWORKS CANVAS                     */
+        /* ============================================= */
+        .fireworks-section {
+            position: relative;
+            padding: 60px 20px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #050205;
+        }
+
+        #fireworks-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .fireworks-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .fireworks-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 44px);
+            background: linear-gradient(135deg, #e74c6f, #ff6b9d, #f7d794);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .fireworks-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 20px;
+            color: rgba(245, 230, 232, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .firework-btn {
+            padding: 14px 35px;
+            background: linear-gradient(135deg, #e74c6f, #f39c12);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(231, 76, 111, 0.3);
+        }
+
+        .firework-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(231, 76, 111, 0.5);
+        }
+
+        /* ============================================= */
+        /* SECTION: GALLERY / POEM CAROUSEL              */
+        /* ============================================= */
+        .gallery-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0d0710 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .poem-carousel {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poem-slide {
+            display: none;
+            text-align: center;
+            padding: 50px 40px;
+            background: linear-gradient(145deg, rgba(20, 10, 18, 0.9), rgba(15, 8, 12, 0.95));
+            border: 1px solid rgba(231, 76, 111, 0.12);
+            border-radius: 25px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .poem-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .poem-slide-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .poem-slide-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.2vw, 22px);
+            line-height: 2;
+            color: rgba(245, 230, 232, 0.85);
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .poem-slide-author {
+            font-family: 'Dancing Script', cursive;
+            font-size: 18px;
+            color: #e74c6f;
+        }
+
+        .poem-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .poem-nav-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(231, 76, 111, 0.15);
+            border: 1px solid rgba(231, 76, 111, 0.3);
+            color: #e74c6f;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .poem-nav-btn:hover {
+            background: rgba(231, 76, 111, 0.3);
+            transform: scale(1.1);
+        }
+
+        .poem-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .poem-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(231, 76, 111, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .poem-dot.active {
+            background: #e74c6f;
+            width: 25px;
+            border-radius: 4px;
+        }
+
+        /* ============================================= */
+        /* MODAL POPUP                                   */
+        /* ============================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #1a0d14, #120810);
+            border: 1px solid rgba(231, 76, 111, 0.2);
+            border-radius: 25px;
+            padding: 50px 40px;
+            max-width: 550px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.8) translateY(30px);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 30px 80px rgba(231, 76, 111, 0.15);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: rgba(245, 230, 232, 0.5);
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            color: #e74c6f;
+            background: rgba(231, 76, 111, 0.1);
+        }
+
+        .modal-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+            animation: modalIconAnim 1s ease infinite alternate;
+        }
+
+        @keyframes modalIconAnim {
+            from { transform: scale(1) rotate(-5deg); }
+            to { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #e74c6f;
+            margin-bottom: 15px;
+        }
+
+        .modal-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 19px;
+            color: rgba(245, 230, 232, 0.8);
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .modal-btn {
+            padding: 12px 35px;
+            background: linear-gradient(135deg, #e74c6f, #c0392b);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px rgba(231, 76, 111, 0.4);
+        }
+
+        /* ============================================= */
+        /* CONFETTI CANVAS                               */
+        /* ============================================= */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ============================================= */
+        /* ENVELOPE ANIMATION                            */
+        /* ============================================= */
+        .envelope-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .envelope {
+            width: 180px;
+            height: 120px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope-body {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e74c6f, #c0392b);
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(231, 76, 111, 0.3);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 90px solid transparent;
+            border-right: 90px solid transparent;
+            border-top: 70px solid #c0392b;
+            transform-origin: top;
+            transition: transform 0.6s ease;
+            z-index: 2;
+        }
+
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-letter {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            right: 15px;
+            height: 90px;
+            background: #fef2f2;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.6s ease 0.3s;
+            z-index: 1;
+        }
+
+        .envelope.open .envelope-letter {
+            transform: translateY(-60px);
+        }
+
+        .envelope-letter-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 12px;
+            color: #8b1e3f;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .envelope-heart {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            z-index: 3;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
+
+        /* ============================================= */
+        /* FOOTER                                        */
+        /* ============================================= */
+        .footer {
+            background: linear-gradient(180deg, #0a0a0a, #050305);
+            padding: 80px 20px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(231, 76, 111, 0.3), transparent);
+        }
+
+        .footer-message {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-message p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(16px, 2.5vw, 22px);
+            line-height: 2;
+            color: rgba(245, 230, 232, 0.7);
+            font-style: italic;
+        }
+
+        .footer-hearts {
+            font-size: 30px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-hearts span {
+            animation: heartFloat 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .footer-hearts span:nth-child(2) { animation-delay: 0.3s; }
+        .footer-hearts span:nth-child(3) { animation-delay: 0.6s; }
+        .footer-hearts span:nth-child(4) { animation-delay: 0.9s; }
+        .footer-hearts span:nth-child(5) { animation-delay: 1.2s; }
+
+        @keyframes heartFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.15); }
+        }
+
+        .footer-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(24px, 4vw, 36px);
+            color: #e74c6f;
+            text-shadow: 0 0 30px rgba(231, 76, 111, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: rgba(245, 230, 232, 0.3);
+            margin-top: 40px;
+        }
+
+        .footer-made-with {
+            font-size: 14px;
+            color: rgba(245, 230, 232, 0.4);
+            margin-top: 10px;
+        }
+
+        .footer-made-with span {
+            color: #e74c6f;
+            animation: heartBeat 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        /* ============================================= */
+        /* PARALLAX DECORATIONS                          */
+        /* ============================================= */
+        .parallax-deco {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.08;
+            font-size: 80px;
+            z-index: 0;
+        }
+
+        .parallax-deco.deco-1 { top: 10%; left: 5%; }
+        .parallax-deco.deco-2 { top: 30%; right: 8%; }
+        .parallax-deco.deco-3 { top: 60%; left: 3%; }
+        .parallax-deco.deco-4 { top: 80%; right: 5%; }
+
+        /* ============================================= */
+        /* GLOW LINE DECORATION                          */
+        /* ============================================= */
+        .glow-line {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e74c6f, transparent);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .glow-line::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: #e74c6f;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #e74c6f;
+        }
+
+        /* ============================================= */
+        /* GENERAL ANIMATIONS                            */
+        /* ============================================= */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(231, 76, 111, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(231, 76, 111, 0.6); }
+        }
+
+        @keyframes rotateHeart {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-glow {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* ============================================= */
+        /* BACKGROUND GRADIENT ANIMATION                 */
+        /* ============================================= */
+        .bg-gradient-anim {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(
+                45deg,
+                #0a0a0a 0%,
+                #120510 25%,
+                #0a0a0a 50%,
+                #0d0810 75%,
+                #0a0a0a 100%
+            );
+            background-size: 400% 400%;
+            animation: bgGradientShift 15s ease infinite;
+        }
+
+        @keyframes bgGradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ============================================= */
+        /* SPECIAL TEXT EFFECTS                          */
+        /* ============================================= */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(231, 76, 111, 0.5),
+                         0 0 40px rgba(231, 76, 111, 0.2);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #e74c6f, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Rose Decoration */
+        .rose-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 24px;
+        }
+
+        .rose-decoration span {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .rose-decoration span:nth-child(2) { animation-delay: 0.5s; }
+        .rose-decoration span:nth-child(3) { animation-delay: 1s; }
+        .rose-decoration span:nth-child(4) { animation-delay: 1.5s; }
+        .rose-decoration span:nth-child(5) { animation-delay: 2s; }
+
+        /* ============================================= */
+        /* BACK TO TOP BUTTON                            */
+        /* ============================================= */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(231, 76, 111, 0.2);
+            border: 1px solid rgba(231, 76, 111, 0.3);
+            color: #e74c6f;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 997;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: rgba(231, 76, 111, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================= */
+        /* ADDITIONAL ROMANTIC SECTIONS                  */
+        /* ============================================= */
+        
+        /* Whisper Section */
+        .whisper-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0f0810 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .whisper-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .whisper-item {
+            padding: 30px 25px;
+            text-align: center;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(231, 76, 111, 0.04), rgba(10, 10, 10, 0.5));
+            border: 1px solid rgba(231, 76, 111, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .whisper-item:hover {
+            border-color: rgba(231, 76, 111, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(231, 76, 111, 0.08);
+        }
+
+        .whisper-item-emoji {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .whisper-item-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 17px;
+            color: rgba(245, 230, 232, 0.75);
+            line-height: 1.7;
+        }
+
+        /* Promise Section */
+        .promise-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0e080d 50%, #0a0a0a 100%);
+        }
+
+        .promise-list {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .promise-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(231, 76, 111, 0.06), rgba(10, 10, 10, 0.5));
+            border-radius: 15px;
+            border: 1px solid rgba(231, 76, 111, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .promise-item:hover {
+            transform: translateX(10px);
+            border-color: rgba(231, 76, 111, 0.2);
+        }
+
+        .promise-item-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .promise-item-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: rgba(245, 230, 232, 0.8);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* Starry decoration */
+        .stars-decoration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #e74c6f;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* ============================================= */
+        /* RESPONSIVE DESIGN                             */
+        /* ============================================= */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 0;
+                text-align: left;
+                flex-direction: row;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 15px;
+            }
+
+            .hero {
+                padding: 100px 15px 60px;
+            }
+
+            .navbar {
+                padding: 12px 20px;
+            }
+
+            .sastra-grid,
+            .kata-grid,
+            .kejutan-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .surat-envelope {
+                padding: 35px 25px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .glow-btn,
+            .glow-btn-outline {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .countdown-container {
+                gap: 10px;
+            }
+
+            .countdown-number {
+                font-size: 28px;
+            }
+
+            .perasaan-text {
+                padding: 30px 20px;
+                font-size: 17px;
+            }
+
+            .perasaan-text::before {
+                font-size: 80px;
+                top: -10px;
+                left: 0;
+            }
+
+            .perasaan-text::after {
+                font-size: 80px;
+                bottom: -40px;
+            }
+
+            .music-btn {
+                width: 48px;
+                height: 48px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .modal-content {
+                padding: 35px 25px;
+            }
+
+            .whisper-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-heart {
+                font-size: 30px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .timeline-content {
+                padding-left: 10px;
+            }
+
+            .timeline-title {
+                font-size: 18px;
+            }
+
+            .surat-body {
+                font-size: 16px;
+            }
+
+            .perasaan-text::before,
+            .perasaan-text::after {
+                display: none;
+            }
+        }
+
+        /* ============================================= */
+        /* PRINT STYLES                                  */
+        /* ============================================= */
+        @media print {
+            .navbar,
+            .music-btn,
+            .back-to-top,
+            .floating-hearts-container,
+            #particles-canvas,
+            #confetti-canvas,
+            .scroll-indicator,
+            .bg-gradient-anim {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                color: #333;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* ============================================= */
+        /* ADDITIONAL POEM SECTION STYLES                */
+        /* ============================================= */
+        .puisi-besar {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px 30px;
+            position: relative;
+        }
+
+        .puisi-besar-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 30px);
+            line-height: 2.2;
+            color: rgba(245, 230, 232, 0.9);
+            font-style: italic;
+        }
+
+        .puisi-besar-text .highlight {
+            color: #e74c6f;
+            font-weight: 600;
+        }
+
+        /* Nama Decoration */
+        .nama-deco {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(40px, 6vw, 70px);
+            color: #e74c6f;
+            text-shadow: 0 0 40px rgba(231, 76, 111, 0.4),
+                         0 0 80px rgba(231, 76, 111, 0.2);
+            display: block;
+            margin: 30px 0;
+        }
+
+        /* ============================================= */
+        /* ADDITIONAL CARD STYLES                        */
+        /* ============================================= */
+        .big-quote-card {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, rgba(231, 76, 111, 0.08), rgba(20, 10, 15, 0.9));
+            border: 1px solid rgba(231, 76, 111, 0.15);
+            border-radius: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .big-quote-card .corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-color: rgba(231, 76, 111, 0.3);
+            border-style: solid;
+        }
+
+        .big-quote-card .corner.tl { top: 15px; left: 15px; border-width: 2px 0 0 2px; }
+        .big-quote-card .corner.tr { top: 15px; right: 15px; border-width: 2px 2px 0 0; }
+        .big-quote-card .corner.bl { bottom: 15px; left: 15px; border-width: 0 0 2px 2px; }
+        .big-quote-card .corner.br { bottom: 15px; right: 15px; border-width: 0 2px 2px 0; }
+
+        .big-quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(18px, 2.5vw, 26px);
+            line-height: 2;
+            color: rgba(245, 230, 232, 0.85);
+            font-style: italic;
+        }
+
+        /* Silhouette romantic decoration */
+        .silhouette-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .silhouette-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(0deg, #0a0a0a, transparent);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Extra romantic glow orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(60px);
+        }
+
+        .glow-orb-1 {
+            width: 300px;
+            height: 300px;
+            background: rgba(231, 76, 111, 0.05);
+            top: 20%;
+            right: -100px;
+            animation: orbFloat 8s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 200px;
+            height: 200px;
+            background: rgba(192, 57, 43, 0.05);
+            bottom: 20%;
+            left: -50px;
+            animation: orbFloat 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -20px); }
+            66% { transform: translate(-20px, 30px); }
+        }
+
+        /* ============================================= */
+        /* EXTRA SECTION: DOA                            */
+        /* ============================================= */
+        .doa-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0d080c 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .doa-card {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, rgba(20, 10, 16, 0.95), rgba(15, 8, 12, 0.98));
+            border: 1px solid rgba(231, 76, 111, 0.12);
+            border-radius: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .doa-card::before {
+            content: '🤲';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            background: #0d080c;
+            padding: 0 15px;
+        }
+
+        .doa-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(16px, 2.2vw, 20px);
+            line-height: 2;
+            color: rgba(245, 230, 232, 0.82);
+            font-style: italic;
+        }
+
+        .doa-text p {
+            margin-bottom: 20px;
+        }
+
+        /* ============================================= */
+        /* COUNTING LOVE SECTION                         */
+        /* ============================================= */
+        .counting-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #0e090c 50%, #0a0a0a 100%);
+        }
+
+        .counting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .counting-item {
+            text-align: center;
+            padding: 35px 20px;
+            background: linear-gradient(135deg, rgba(231, 76, 111, 0.06), rgba(10, 10, 10, 0.6));
+            border: 1px solid rgba(231, 76, 111, 0.1);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .counting-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(231, 76, 111, 0.25);
+        }
+
+        .counting-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #e74c6f;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(231, 76, 111, 0.3);
+        }
+
+        .counting-label {
+            font-family: 'Dancing Script', cursive;
+            font-size: 16px;
+            color: rgba(245, 230, 232, 0.6);
+        }
+
+        /* ============================================= */
+        /* ACCESSIBILITY                                 */
+        /* ============================================= */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid #e74c6f;
+            outline-offset: 3px;
+        }
+
+        /* ============================================= */
+        /* ADDITIONAL SPACERS AND UTILITIES              */
+        /* ============================================= */
+        .spacer-sm { height: 30px; }
+        .spacer-md { height: 60px; }
+        .spacer-lg { height: 100px; }
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+
+        /* Delicate separator */
+        .delicate-sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+            opacity: 0.4;
+        }
+
+        .delicate-sep .dot {
+            width: 4px;
+            height: 4px;
+            background: #e74c6f;
+            border-radius: 50%;
+        }
+
+        .delicate-sep .dash {
+            width: 40px;
+            height: 1px;
+            background: #e74c6f;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- PRELOADER                                     -->
+    <!-- ============================================= -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-heart">💖</div>
+        <div class="preloader-text">Menyiapkan sesuatu yang spesial...</div>
+        <div class="preloader-bar-container">
+            <div class="preloader-bar"></div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- BACKGROUND GRADIENT ANIMATION                 -->
+    <!-- ============================================= -->
+    <div class="bg-gradient-anim"></div>
+
+    <!-- ============================================= -->
+    <!-- PARTICLE CANVAS                               -->
+    <!-- ============================================= -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ============================================= -->
+    <!-- FLOATING HEARTS CONTAINER                     -->
+    <!-- ============================================= -->
+    <div class="floating-hearts-container" id="floating-hearts"></div>
+
+    <!-- ============================================= -->
+    <!-- CONFETTI CANVAS                               -->
+    <!-- ============================================= -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- ============================================= -->
+    <!-- NAVIGATION                                    -->
+    <!-- ============================================= -->
+    <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-logo">💖 Untuk Nadia</a>
+        <ul class="nav-links">
+            <li><a href="#perasaan">Perasaan</a></li>
+            <li><a href="#sastra">Sastra</a></li>
+            <li><a href="#motivasi">Motivasi</a></li>
+            <li><a href="#kata-cinta">Kata Cinta</a></li>
+            <li><a href="#surat">Surat</a></li>
+            <li><a href="#harapan">Harapan</a></li>
+            <li><a href="#kejutan">Kejutan</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#perasaan" onclick="closeMobileMenu()">🌹 Perasaan</a>
+        <a href="#sastra" onclick="closeMobileMenu()">📜 Sastra Cinta</a>
+        <a href="#motivasi" onclick="closeMobileMenu()">✨ Motivasi</a>
+        <a href="#kata-cinta" onclick="closeMobileMenu()">💖 Kata Cinta</a>
+        <a href="#surat" onclick="closeMobileMenu()">💌 Surat Cinta</a>
+        <a href="#harapan" onclick="closeMobileMenu()">⭐ Harapan</a>
+        <a href="#kejutan" onclick="closeMobileMenu()">🎁 Kejutan</a>
+        <a href="#doa" onclick="closeMobileMenu()">🤲 Doa</a>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION: HERO                                 -->
+    <!-- ============================================= -->
+    <section class="hero" id="hero">
+        <!-- Glow Orbs -->
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+
+        <div class="hero-content">
+            <!-- Badge -->
+            <div class="hero-badge">✨ Sebuah Hadiah Digital ✨</div>
+
+            <!-- Title -->
+            <h1 class="hero-title">
+                Untuk Nadia <span class="hero-heart">❤️</span>
+            </h1>
+
+            <!-- Rose Decoration -->
+            <div class="rose-decoration">
+                <span>🌹</span>
+                <span>🌸</span>
+                <span>🦋</span>
+                <span>🌸</span>
+                <span>🌹</span>
+            </div>
+
+            <!-- Subtitle with typing animation -->
+            <div class="hero-subtitle">
+                <span class="typing-text" id="typing-text"></span>
+            </div>
+
+            <!-- Hero Buttons -->
+            <div class="hero-buttons">
+                <a href="#surat" class="glow-btn">
+                    💌 Baca Surat Cinta
+                </a>
+                <button class="glow-btn-outline" onclick="openModal()">
+                    🌹 Pesan Spesial
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>scroll</span>
+            <div class="scroll-mouse"></div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: PERASAAN (FEELINGS)                  -->
+    <!-- ============================================= -->
+    <section class="perasaan-section" id="perasaan">
+        <div class="container">
+            <!-- Section Title -->
+            <div class="reveal">
+                <h2 class="section-title">Tentang Perasaan Ini</h2>
+                <p class="section-subtitle">Sebuah kisah yang belum selesai ditulis ✨</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🌹</span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Perasaan Content -->
+            <div class="perasaan-content">
+                <div class="perasaan-text reveal">
+                    Nadia,
+                    di antara jutaan langkah manusia di dunia ini,
+                    anehnya hatiku selalu berhenti pada <span class="perasaan-highlight">satu nama — namamu</span>.
+                    Bukan karena kemauan,
+                    tapi karena hati ini sudah memilih
+                    jauh sebelum akal sempat bertanya.
+                </div>
+
+                <div class="perasaan-emoji reveal">🌹</div>
+
+                <div class="perasaan-text reveal">
+                    Aku tidak tahu bagaimana masa depan akan menulis cerita kita,
+                    tetapi jika ada satu hal yang pasti,
+                    itu adalah <span class="perasaan-highlight">harapanku agar suatu hari
+                    kita berjalan di jalan yang sama</span>.
+                    Bukan karena kebetulan,
+                    tapi karena kita memilih untuk berjalan bersama.
+                </div>
+
+                <div class="perasaan-emoji reveal">💖</div>
+
+                <div class="perasaan-text reveal">
+                    Kamu mungkin tidak pernah tahu,
+                    bahwa di setiap senja yang datang,
+                    ada satu hati yang diam-diam berdoa
+                    agar kamu selalu <span class="perasaan-highlight">dilindungi, dibahagiakan,
+                    dan dicintai oleh dunia</span>
+                    — sebagaimana hatiku mencintaimu dalam diam.
+                </div>
+
+                <div class="perasaan-emoji reveal">🦋</div>
+
+                <div class="perasaan-text reveal">
+                    Ada sesuatu di dalam dirimu, Nadia,
+                    yang membuat dunia ini terasa lebih <span class="perasaan-highlight">hangat</span>.
+                    Mungkin itu senyummu,
+                    mungkin itu caramu melihat dunia,
+                    atau mungkin itu hanya karena
+                    kamu adalah kamu —
+                    dan itu sudah lebih dari cukup.
+                </div>
+
+                <div class="glow-line reveal"></div>
+
+                <div class="big-quote-card reveal">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                    <p class="big-quote-text">
+                        "Di antara semua bahasa yang pernah kukenal,<br>
+                        <span class="text-gradient">namamu adalah kata terindah</span><br>
+                        yang pernah lidahku ucapkan<br>
+                        dan hatiku bisikkan."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: SASTRA CINTA INDONESIA               -->
+    <!-- ============================================= -->
+    <section class="sastra-section" id="sastra">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Sastra Cinta Indonesia 📜</h2>
+                <p class="section-subtitle">Puisi-puisi yang lahir dari hati yang merindukan 🌹</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">✍️</span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Sastra Grid -->
+            <div class="sastra-grid">
+                <!-- Card 1 -->
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">🌹</span>
+                    <p class="sastra-card-text">
+                        Cinta bukan hanya tentang memiliki,
+                        ia adalah tentang menjaga seseorang
+                        bahkan ketika dunia sedang tidak ramah.
+                        Ia adalah tentang menjadi pelabuhan
+                        bagi jiwa yang lelah berlayar.
+                    </p>
+                    <span class="sastra-card-author">— Untukmu, Nadia</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">🌙</span>
+                    <p class="sastra-card-text">
+                        Jika rindu adalah bahasa,
+                        maka namamu adalah puisi
+                        yang tidak pernah selesai kutulis.
+                        Setiap bait berisi doaku,
+                        setiap kata berisi harapanku.
+                    </p>
+                    <span class="sastra-card-author">— Bisikan Hati</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">🦋</span>
+                    <p class="sastra-card-text">
+                        Di sudut hati yang paling sunyi,
+                        aku menyimpan namamu
+                        seperti penjaga mercusuar menyimpan cahaya —
+                        dengan harapan bahwa suatu hari,
+                        cahaya itu akan menuntunmu pulang.
+                    </p>
+                    <span class="sastra-card-author">— Puisi untuk Nadia</span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">⭐</span>
+                    <p class="sastra-card-text">
+                        Seperti bulan yang setia menemani malam,
+                        begitulah hatiku ingin menemanimu —
+                        dalam gelap maupun terang,
+                        dalam tawa maupun tangis,
+                        dalam semua musim yang datang.
+                    </p>
+                    <span class="sastra-card-author">— Janji Malam</span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">🌸</span>
+                    <p class="sastra-card-text">
+                        Aku pernah bertanya kepada angin,
+                        mengapa ia selalu kembali?
+                        Angin menjawab: karena ada tempat
+                        yang membuatnya merasa pulang.
+                        Nadia, kamu adalah tempat itu bagiku.
+                    </p>
+                    <span class="sastra-card-author">— Dialog dengan Angin</span>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">💫</span>
+                    <p class="sastra-card-text">
+                        Di antara semua keindahan yang diciptakan Tuhan,
+                        aku menemukan satu yang paling membuatku terpana —
+                        bukan matahari terbenam, bukan lautan luas,
+                        melainkan kebaikan hati
+                        yang kamu simpan begitu dalam.
+                    </p>
+                    <span class="sastra-card-author">— Keindahan Tersembunyi</span>
+                </div>
+            </div>
+
+            <div class="spacer-md"></div>
+
+            <!-- Big Poem -->
+            <div class="puisi-besar reveal">
+                <span class="nama-deco">Nadia</span>
+                <p class="puisi-besar-text">
+                    Namamu bukan sekadar deretan huruf,<br>
+                    ia adalah <span class="highlight">melodi</span> yang membuat<br>
+                    hatiku bernyanyi<br>
+                    di saat dunia terasa sunyi.<br><br>
+                    Namamu adalah <span class="highlight">rumah</span><br>
+                    bagi setiap kata rindu<br>
+                    yang tak pernah kuucapkan,<br>
+                    bagi setiap doa<br>
+                    yang kulantunkan dalam hening.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: POEM CAROUSEL                        -->
+    <!-- ============================================= -->
+    <section class="gallery-section" id="galeri-puisi">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Kumpulan Puisi 🌙</h2>
+                <p class="section-subtitle">Geser untuk membaca puisi-puisi dari hati 🦋</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">📖</span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Poem Carousel -->
+            <div class="poem-carousel reveal-scale">
+                <div class="poem-slide active" data-slide="0">
+                    <span class="poem-slide-icon">🌹</span>
+                    <p class="poem-slide-text">
+                        Jika aku bisa mengulang waktu,<br>
+                        aku tidak akan mengubah apapun.<br>
+                        Karena setiap detik yang berlalu<br>
+                        membawaku lebih dekat<br>
+                        kepada satu kesadaran:<br>
+                        bahwa kamu adalah jawaban<br>
+                        dari doa yang tak pernah kuucapkan.
+                    </p>
+                    <span class="poem-slide-author">— Puisi Pertama untuk Nadia</span>
+                </div>
+
+                <div class="poem-slide" data-slide="1">
+                    <span class="poem-slide-icon">🌙</span>
+                    <p class="poem-slide-text">
+                        Malam ini, langit begitu tenang<br>
+                        dan bintang-bintang berbisik tentangmu.<br>
+                        Mereka bilang, ada satu jiwa<br>
+                        yang sedang memikirkanmu —<br>
+                        dengan tulus, dengan lembut,<br>
+                        dengan segala harapan<br>
+                        yang tersimpan di dalam hati.
+                    </p>
+                    <span class="poem-slide-author">— Bisikan Bintang</span>
+                </div>
+
+                <div class="poem-slide" data-slide="2">
+                    <span class="poem-slide-icon">🦋</span>
+                    <p class="poem-slide-text">
+                        Kamu adalah puisi<br>
+                        yang tidak membutuhkan rima,<br>
+                        karena keindahanmu<br>
+                        sudah sempurna apa adanya.<br>
+                        Kamu adalah lagu<br>
+                        yang tidak membutuhkan nada,<br>
+                        karena kehadiranmu<br>
+                        sudah menjadi melodi terindah.
+                    </p>
+                    <span class="poem-slide-author">— Untuk yang Tersayang</span>
+                </div>
+
+                <div class="poem-slide" data-slide="3">
+                    <span class="poem-slide-icon">✨</span>
+                    <p class="poem-slide-text">
+                        Suatu hari nanti,<br>
+                        ketika semua ini sudah menjadi kenangan,<br>
+                        aku ingin kamu ingat satu hal:<br>
+                        bahwa ada seseorang<br>
+                        yang pernah mencintaimu<br>
+                        dengan cara yang paling tulus —<br>
+                        tanpa syarat, tanpa batas.
+                    </p>
+                    <span class="poem-slide-author">— Janji yang Tak Terucap</span>
+                </div>
+
+                <div class="poem-slide" data-slide="4">
+                    <span class="poem-slide-icon">🌸</span>
+                    <p class="poem-slide-text">
+                        Di taman hati yang pernah sepi,<br>
+                        namamu tumbuh seperti bunga<br>
+                        yang mekar di musim yang tak terduga.<br>
+                        Dan sejak saat itu,<br>
+                        taman ini tidak pernah lagi<br>
+                        mengenal kata 'sunyi'.
+                    </p>
+                    <span class="poem-slide-author">— Taman Hati</span>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="poem-nav reveal">
+                <button class="poem-nav-btn" onclick="prevPoem()">◀</button>
+                <button class="poem-nav-btn" onclick="nextPoem()">▶</button>
+            </div>
+            <div class="poem-dots reveal" id="poem-dots">
+                <div class="poem-dot active" onclick="goToPoem(0)"></div>
+                <div class="poem-dot" onclick="goToPoem(1)"></div>
+                <div class="poem-dot" onclick="goToPoem(2)"></div>
+                <div class="poem-dot" onclick="goToPoem(3)"></div>
+                <div class="poem-dot" onclick="goToPoem(4)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: MOTIVASI UNTUK NADIA                 -->
+    <!-- ============================================= -->
+    <section class="motivasi-section" id="motivasi">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Motivasi untuk Nadia ✨</h2>
+                <p class="section-subtitle">Kata-kata yang kuharap bisa menguatkan langkahmu 💪</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">⭐</span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Motivasi List -->
+            <div class="motivasi-list">
+                <div class="motivasi-item reveal-left">
+                    <span class="motivasi-icon">🌟</span>
+                    <p class="motivasi-text">
+                        <strong>Nadia</strong>,
+                        kamu lebih kuat dari yang kamu kira.
+                        Setiap badai yang pernah kamu lewati
+                        adalah bukti bahwa kamu memiliki kekuatan
+                        yang bahkan kamu sendiri belum sepenuhnya sadari.
+                    </p>
+                </div>
+
+                <div class="motivasi-item reveal-right">
+                    <span class="motivasi-icon">🌈</span>
+                    <p class="motivasi-text">
+                        Jika dunia terasa berat,
+                        ingatlah bahwa <strong>kamu tidak berjalan sendirian</strong>.
+                        Ada orang-orang yang peduli padamu,
+                        yang mendoakanmu,
+                        yang berharap kamu bahagia
+                        bahkan di saat kamu tidak menyadarinya.
+                    </p>
+                </div>
+
+                <div class="motivasi-item reveal-left">
+                    <span class="motivasi-icon">🚀</span>
+                    <p class="motivasi-text">
+                        <strong>Langkah kecilmu hari ini</strong>
+                        adalah masa depan besarmu nanti.
+                        Jangan pernah meremehkan progres kecil,
+                        karena dari langkah kecil itulah
+                        perjalanan besar dimulai.
+                    </p>
+                </div>
+
+                <div class="motivasi-item reveal-right">
+                    <span class="motivasi-icon">💎</span>
+                    <p class="motivasi-text">
+                        Kamu adalah <strong>berlian</strong> yang sedang diasah.
+                        Setiap tekanan, setiap tantangan,
+                        hanya membuatmu semakin berkilau.
+                        Percayalah pada prosesnya,
+                        karena hasil akhirnya akan luar biasa.
+                    </p>
+                </div>
+
+                <div class="motivasi-item reveal-left">
+                    <span class="motivasi-icon">🌻</span>
+                    <p class="motivasi-text">
+                        Seperti bunga matahari yang selalu menghadap cahaya,
+                        <strong>jadilah seseorang yang selalu mencari kebaikan</strong>
+                        di setiap situasi.
+                        Karena di balik awan yang paling gelap,
+                        matahari tetap bersinar.
+                    </p>
+                </div>
+
+                <div class="motivasi-item reveal-right">
+                    <span class="motivasi-icon">🎯</span>
+                    <p class="motivasi-text">
+                        <strong>Mimpi-mimpimu valid</strong>, Nadia.
+                        Tidak peduli seberapa besar atau kecil,
+                        mimpi-mimpimu layak untuk diperjuangkan.
+                        Dan aku percaya, suatu hari nanti,
+                        kamu akan melihat ke belakang dan tersenyum bangga.
+                    </p>
+                </div>
+
+                <div class="motivasi-item reveal-left">
+                    <span class="motivasi-icon">🕊️</span>
+                    <p class="motivasi-text">
+                        Nadia, <strong>jangan pernah lupa untuk berbaik hati</strong>
+                        kepada dirimu sendiri.
+                        Kamu pantas mendapatkan kebahagiaan
+                        yang sama besarnya dengan kebahagiaan
+                        yang selalu kamu berikan kepada orang lain.
+                    </p>
+                </div>
+
+                <div class="motivasi-item reveal-right">
+                    <span class="motivasi-icon">🔥</span>
+                    <p class="motivasi-text">
+                        Ada <strong>api</strong> di dalam dirimu
+                        yang tidak akan pernah padam.
+                        Api semangat, api kebaikan,
+                        api tekad yang tidak bisa dihentikan.
+                        Biarkan api itu terus menyala
+                        dan menerangi jalanmu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: KATA-KATA CINTA (LOVE WORDS)         -->
+    <!-- ============================================= -->
+    <section class="kata-cinta-section" id="kata-cinta">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Kata-Kata Cinta 💖</h2>
+                <p class="section-subtitle">Setiap kata adalah serpihan perasaan yang tulus 🌹</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">💝</span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Kata Grid -->
+            <div class="kata-grid">
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">01</span>
+                    <span class="kata-card-emoji">🏠</span>
+                    <p class="kata-card-text">
+                        Kamu adalah tempat
+                        di mana hatiku merasa pulang.
+                        Bukan rumah dari batu dan kayu,
+                        tapi rumah dari kehangatan dan cinta.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">02</span>
+                    <span class="kata-card-emoji">😊</span>
+                    <p class="kata-card-text">
+                        Senyummu adalah keajaiban kecil
+                        yang selalu memperbaiki hariku.
+                        Seperti pelangi setelah hujan,
+                        kamu menghadirkan warna
+                        di hari yang kelabu.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">03</span>
+                    <span class="kata-card-emoji">🚶</span>
+                    <p class="kata-card-text">
+                        Jika suatu hari kita berjalan bersama,
+                        aku ingin kamu tahu
+                        bahwa perjalanan itu sudah lama
+                        dimulai di hatiku.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">04</span>
+                    <span class="kata-card-emoji">🌅</span>
+                    <p class="kata-card-text">
+                        Setiap pagi adalah kesempatan baru
+                        untuk bersyukur bahwa di dunia ini,
+                        ada seseorang bernama Nadia
+                        yang membuat semuanya
+                        terasa lebih bermakna.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">05</span>
+                    <span class="kata-card-emoji">📖</span>
+                    <p class="kata-card-text">
+                        Jika hidupku adalah sebuah buku,
+                        maka bab terbaiknya
+                        adalah halaman di mana
+                        namamu pertama kali ditulis.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">06</span>
+                    <span class="kata-card-emoji">🌊</span>
+                    <p class="kata-card-text">
+                        Seperti laut yang tidak pernah bosan
+                        memeluk pantai,
+                        begitulah hatiku —
+                        tidak pernah bosan
+                        menyebut namamu dalam setiap doa.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">07</span>
+                    <span class="kata-card-emoji">💫</span>
+                    <p class="kata-card-text">
+                        Kamu tidak perlu menjadi sempurna
+                        untuk dicintai.
+                        Karena bagiku,
+                        ketidaksempurnaanmu
+                        justru yang membuatmu
+                        begitu sempurna.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">08</span>
+                    <span class="kata-card-emoji">🎵</span>
+                    <p class="kata-card-text">
+                        Jika cinta adalah lagu,
+                        maka namamu adalah chorus
+                        yang terus berulang
+                        di setiap bait kehidupanku —
+                        indah dan tak tergantikan.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">09</span>
+                    <span class="kata-card-emoji">🌺</span>
+                    <p class="kata-card-text">
+                        Di antara semua kebetulan di dunia ini,
+                        mengenalmu adalah kebetulan terindah
+                        yang pernah terjadi.
+                        Dan aku tidak akan menukarnya
+                        dengan apapun.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: BISIKAN HATI (WHISPERS)              -->
+    <!-- ============================================= -->
+    <section class="whisper-section" id="bisikan">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Bisikan Hati 🌙</h2>
+                <p class="section-subtitle">Hal-hal kecil yang ingin kusampaikan padamu ✨</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">💭</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="whisper-grid">
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🌙</span>
+                    <p class="whisper-item-text">Setiap malam, sebelum tertidur, aku berharap mimpimu dipenuhi kebahagiaan.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">☀️</span>
+                    <p class="whisper-item-text">Setiap pagi, aku berdoa agar harimu dimulai dengan senyuman.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🌧️</span>
+                    <p class="whisper-item-text">Di hari-hari yang mendung, aku ingin menjadi pelangi untukmu.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🍂</span>
+                    <p class="whisper-item-text">Di musim yang berubah, satu hal tetap konstan — perasaan ini untukmu.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🌷</span>
+                    <p class="whisper-item-text">Kamu adalah alasan mengapa aku percaya bahwa keindahan itu nyata.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🕯️</span>
+                    <p class="whisper-item-text">Di kegelapan yang paling dalam, namamu adalah cahaya yang menuntunku.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: SURAT CINTA (LOVE LETTER)            -->
+    <!-- ============================================= -->
+    <section class="surat-section" id="surat">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Surat Cinta 💌</h2>
+                <p class="section-subtitle">Sebuah surat yang ditulis dengan tinta hati 🖋️</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">💌</span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Envelope Animation -->
+            <div class="envelope-container reveal-scale">
+                <div class="envelope" id="envelope" onclick="toggleEnvelope()">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <div class="envelope-heart">❤️</div>
+                    </div>
+                    <div class="envelope-letter">
+                        <span class="envelope-letter-text">Untuk Nadia ❤️<br>Klik untuk membuka</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spacer-md"></div>
+
+            <!-- Surat Content -->
+            <div class="surat-container reveal">
+                <div class="surat-envelope">
+                    <div class="surat-header">
+                        <p class="surat-date">Di suatu hari yang penuh harapan...</p>
+                        <h3 class="surat-greeting">Nadia yang tercinta ❤️</h3>
+                    </div>
+
+                    <div class="surat-body">
+                        <p>
+                            Saat kamu membaca surat ini, aku ingin kamu tahu bahwa setiap kata yang tertulis di sini lahir dari tempat yang paling jujur di dalam hatiku. Bukan dari kepintaran merangkai kata, tapi dari ketulusan yang tidak bisa lagi kusembunyikan.
+                        </p>
+
+                        <p>
+                            Nadia, aku tidak tahu kapan tepatnya perasaan ini mulai tumbuh. Mungkin ia tumbuh perlahan seperti fajar yang menyingsing — begitu halus sehingga aku tidak menyadarinya, sampai tiba-tiba seluruh langit sudah terang oleh cahayamu.
+                        </p>
+
+                        <p>
+                            Yang kutahu adalah ini: di antara semua orang yang pernah kutemui, di antara semua senyum yang pernah kulihat, ada sesuatu di dalam dirimu yang membuat hatiku berkata, "Di sinilah tempatku berlabuh." Bukan karena kamu sempurna, tapi karena di mataku, kamu adalah segalanya.
+                        </p>
+
+                        <p>
+                            Aku sering bermimpi tentang masa depan. Tentang hari-hari di mana kita bisa tertawa bersama tanpa beban. Tentang sore-sore di mana kita duduk berdampingan menikmati langit senja. Tentang malam-malam di mana kita berbagi cerita sampai mata tidak lagi kuat terbuka.
+                        </p>
+
+                        <p>
+                            Aku tahu, hidup tidak selalu mudah. Akan ada hari-hari di mana badai datang tanpa diundang. Tapi jika ada satu hal yang ingin kusampaikan, itu adalah ini: aku ingin menjadi orang yang tetap berdiri di sampingmu, bahkan ketika seluruh dunia memilih pergi.
+                        </p>
+
+                        <p>
+                            Nadia, kamu layak dicintai — bukan hanya di hari-hari baikmu, tapi juga di hari-hari terburukmu. Bukan hanya saat kamu tersenyum, tapi juga saat air matamu jatuh. Bukan hanya saat kamu kuat, tapi juga saat kamu merasa rapuh.
+                        </p>
+
+                        <p>
+                            Aku mendoakanmu setiap hari. Aku mendoakan kesehatanmu, kebahagiaanmu, kesuksesanmu, dan setiap langkahmu. Aku mendoakan agar Tuhan selalu melindungimu, membimbingmu, dan memberikanmu yang terbaik — bahkan jika yang terbaik itu bukan aku.
+                        </p>
+
+                        <p>
+                            Karena pada akhirnya, cinta yang tulus bukan tentang memiliki. Ia adalah tentang mendoakan kebahagiaan seseorang, bahkan jika kebahagiaan itu tidak melibatkan dirimu. Dan aku mencintaimu dengan cara seperti itu — tulus, murni, dan tanpa syarat.
+                        </p>
+
+                        <p>
+                            Jika suatu hari Tuhan berkehendak untuk mempertemukan jalan kita, aku akan menjadi orang paling bersyukur di dunia ini. Tapi jika tidak, aku tetap bersyukur — karena pernah mengenal seseorang bernama Nadia yang membuat dunia ini terasa lebih indah.
+                        </p>
+
+                        <p>
+                            Terima kasih telah menjadi kamu, Nadia. Terima kasih telah hadir di dunia ini dan membuat seseorang — di suatu tempat — tersenyum hanya karena memikirkanmu. ❤️
+                        </p>
+                    </div>
+
+                    <div class="surat-closing">
+                        <p>Dengan segala cinta dan doa,</p>
+                        <p>Dari seseorang yang tulus mengagumi keindahan hatimu,</p>
+                        <span class="surat-signature">Untuk Nadia, selamanya ❤️</span>
+                    </div>
+
+                    <div class="surat-wax-seal">
+                        <div class="wax-seal">❤️</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: JANJI (PROMISES)                     -->
+    <!-- ============================================= -->
+    <section class="promise-section" id="janji">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Janji dari Hati 🤝</h2>
+                <p class="section-subtitle">Bukan janji kosong, tapi janji yang lahir dari ketulusan 💫</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🕊️</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="promise-list">
+                <div class="promise-item reveal-left">
+                    <span class="promise-item-icon">🛡️</span>
+                    <p class="promise-item-text">Aku berjanji untuk selalu mendoakan kebahagiaanmu, di setiap sujud dan setiap doa yang kulantunkan.</p>
+                </div>
+                <div class="promise-item reveal-right">
+                    <span class="promise-item-icon">👂</span>
+                    <p class="promise-item-text">Aku berjanji untuk menjadi pendengar yang baik — di saat kamu butuh bercerita, di saat dunia terasa terlalu bising.</p>
+                </div>
+                <div class="promise-item reveal-left">
+                    <span class="promise-item-icon">🌟</span>
+                    <p class="promise-item-text">Aku berjanji untuk selalu mengingatkanmu betapa luar biasanya dirimu, terutama di saat kamu lupa.</p>
+                </div>
+                <div class="promise-item reveal-right">
+                    <span class="promise-item-icon">🤲</span>
+                    <p class="promise-item-text">Aku berjanji untuk menghargai setiap perasaanmu — kebahagiaanmu, kesedihanmu, kemarahanmu, semuanya.</p>
+                </div>
+                <div class="promise-item reveal-left">
+                    <span class="promise-item-icon">🏔️</span>
+                    <p class="promise-item-text">Aku berjanji untuk tidak pernah berhenti mendukung mimpi-mimpimu, sekecil atau sebesar apapun itu.</p>
+                </div>
+                <div class="promise-item reveal-right">
+                    <span class="promise-item-icon">💖</span>
+                    <p class="promise-item-text">Dan yang paling penting — aku berjanji untuk selalu tulus, karena ketulusan adalah pondasi dari segalanya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: HARAPAN MASA DEPAN (TIMELINE)        -->
+    <!-- ============================================= -->
+    <section class="timeline-section" id="harapan">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Harapan Masa Depan ⭐</h2>
+                <p class="section-subtitle">Sebuah perjalanan yang kuharap bisa kita lalui bersama 🌈</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🗺️</span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <!-- Item 1 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">📍 Hari Ini</h3>
+                        <p class="timeline-desc">
+                            Hari di mana semua dimulai.
+                            Sebuah perasaan tulus yang ditulis
+                            menjadi kata-kata,
+                            berharap bisa menyentuh hatimu.
+                        </p>
+                        <span class="timeline-emoji">🌱</span>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">🤝 Bertemu</h3>
+                        <p class="timeline-desc">
+                            Kuharap suatu hari nanti
+                            kita bisa duduk bersama,
+                            berbagi cerita, tertawa,
+                            dan mengenal satu sama lain
+                            lebih dalam dari sebelumnya.
+                        </p>
+                        <span class="timeline-emoji">☕</span>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">💪 Berjuang Bersama</h3>
+                        <p class="timeline-desc">
+                            Melalui suka dan duka,
+                            tawa dan tangis,
+                            saling menguatkan
+                            di setiap musim yang datang.
+                            Karena berjuang bersama
+                            selalu lebih ringan.
+                        </p>
+                        <span class="timeline-emoji">🌈</span>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">🏡 Membangun Bersama</h3>
+                        <p class="timeline-desc">
+                            Membangun mimpi,
+                            membangun harapan,
+                            membangun sebuah kehidupan
+                            yang dilandasi cinta dan ketulusan.
+                        </p>
+                        <span class="timeline-emoji">🌻</span>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">⭐ Masa Depan</h3>
+                        <p class="timeline-desc">
+                            Sebuah masa depan yang penuh berkah,
+                            di mana kita bisa melihat ke belakang
+                            dan tersenyum karena perjalanan
+                            yang telah kita lalui bersama
+                            — penuh cinta dan penuh syukur.
+                        </p>
+                        <span class="timeline-emoji">✨🌟✨</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: DOA                                  -->
+    <!-- ============================================= -->
+    <section class="doa-section" id="doa">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Doa untuk Nadia 🤲</h2>
+                <p class="section-subtitle">Doa-doa yang selalu kulantunkan untukmu ✨</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🕌</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="doa-card reveal-scale">
+                <div class="doa-text">
+                    <p>
+                        Ya Tuhan, jagalah Nadia di setiap langkahnya.
+                        Berikanlah ia kesehatan yang sempurna,
+                        kebahagiaan yang berlimpah,
+                        dan ketenangan hati yang mendalam.
+                    </p>
+                    <p>
+                        Lindungilah ia dari segala yang buruk,
+                        mudahkanlah setiap urusannya,
+                        dan bukakanlah pintu-pintu kebaikan untuknya.
+                    </p>
+                    <p>
+                        Berikanlah ia kekuatan di saat lemah,
+                        penghiburan di saat sedih,
+                        dan kebijaksanaan di setiap keputusannya.
+                    </p>
+                    <p>
+                        Dan jika Engkau mengizinkan,
+                        pertemukanlah jalan kami
+                        di waktu yang tepat,
+                        dengan cara yang indah,
+                        dan dengan ridho-Mu.
+                    </p>
+                    <p style="color: #e74c6f; font-weight: 600;">
+                        Aamiin. 🤲❤️
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: COUNTING LOVE                        -->
+    <!-- ============================================= -->
+    <section class="counting-section" id="counting">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Menghitung Cinta 💖</h2>
+                <p class="section-subtitle">Angka-angka yang mewakili perasaan ini 🌹</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🔢</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="counting-grid">
+                <div class="counting-item reveal">
+                    <div class="counting-number" data-target="365">0</div>
+                    <div class="counting-label">Hari dalam setahun mendoakanmu</div>
+                </div>
+                <div class="counting-item reveal">
+                    <div class="counting-number" data-target="1000">0</div>
+                    <div class="counting-label">Doa yang telah terucap</div>
+                </div>
+                <div class="counting-item reveal">
+                    <div class="counting-number" data-target="999">0</div>
+                    <div class="counting-label">Alasan untuk tersenyum</div>
+                </div>
+                <div class="counting-item reveal">
+                    <div class="counting-number special" data-target="1">0</div>
+                    <div class="counting-label">Nadia di hatiku ❤️</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: KEJUTAN (SURPRISE)                   -->
+    <!-- ============================================= -->
+    <section class="kejutan-section" id="kejutan">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Kejutan Spesial 🎁</h2>
+                <p class="section-subtitle">Beberapa kejutan kecil yang kusiapkan untukmu 💝</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🎉</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="kejutan-grid">
+                <!-- Random Love Quotes -->
+                <div class="kejutan-card reveal">
+                    <span class="kejutan-card-icon">❤️</span>
+                    <h3 class="kejutan-card-title">Random Love Quotes</h3>
+                    <p class="kejutan-card-desc">Tekan tombol untuk mendapatkan kata-kata cinta secara acak.</p>
+                    <div class="quote-display">
+                        <p class="quote-text" id="random-quote">Tekan tombol di bawah untuk mulai ❤️</p>
+                    </div>
+                    <button class="glow-btn" onclick="generateQuote()" style="padding: 12px 28px; font-size: 14px;">
+                        🌹 Dapatkan Quote
+                    </button>
+                </div>
+
+                <!-- Semangat Hari Ini -->
+                <div class="kejutan-card reveal">
+                    <span class="kejutan-card-icon">✨</span>
+                    <h3 class="kejutan-card-title">Semangat Hari Ini</h3>
+                    <p class="kejutan-card-desc">Butuh semangat? Tekan tombol ini untuk mendapatkan pesan motivasi.</p>
+                    <div class="semangat-result">
+                        <p class="semangat-text" id="semangat-text"></p>
+                    </div>
+                    <button class="glow-btn" onclick="generateSemangat()" style="padding: 12px 28px; font-size: 14px;">
+                        💪 Semangat!
+                    </button>
+                </div>
+
+                <!-- Pesan Cinta -->
+                <div class="kejutan-card reveal">
+                    <span class="kejutan-card-icon">💌</span>
+                    <h3 class="kejutan-card-title">Pesan Cinta</h3>
+                    <p class="kejutan-card-desc">Buka amplop ini untuk membaca pesan cinta spesial untukmu.</p>
+                    <div class="spacer-sm"></div>
+                    <button class="glow-btn" onclick="openModal()" style="padding: 12px 28px; font-size: 14px;">
+                        💌 Buka Pesan
+                    </button>
+                </div>
+
+                <!-- Countdown -->
+                <div class="kejutan-card reveal">
+                    <span class="kejutan-card-icon">⏰</span>
+                    <h3 class="kejutan-card-title">Hitung Mundur</h3>
+                    <p class="kejutan-card-desc">Menuju hari spesial yang penuh harapan.</p>
+                    <div class="countdown-container" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="cd-days">00</span>
+                            <span class="countdown-label">Hari</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="cd-hours">00</span>
+                            <span class="countdown-label">Jam</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="cd-mins">00</span>
+                            <span class="countdown-label">Menit</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="cd-secs">00</span>
+                            <span class="countdown-label">Detik</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 13px; color: rgba(245,230,232,0.4); margin-top: 10px;">Menuju tahun baru penuh harapan ✨</p>
+                </div>
+
+                <!-- Confetti -->
+                <div class="kejutan-card reveal">
+                    <span class="kejutan-card-icon">🎊</span>
+                    <h3 class="kejutan-card-title">Confetti Celebration</h3>
+                    <p class="kejutan-card-desc">Rayakan keindahan cinta dengan confetti yang meriah!</p>
+                    <div class="spacer-sm"></div>
+                    <button class="glow-btn" onclick="launchConfetti()" style="padding: 12px 28px; font-size: 14px;">
+                        🎉 Luncurkan Confetti!
+                    </button>
+                </div>
+
+                <!-- Fireworks -->
+                <div class="kejutan-card reveal">
+                    <span class="kejutan-card-icon">🎆</span>
+                    <h3 class="kejutan-card-title">Kembang Api</h3>
+                    <p class="kejutan-card-desc">Lihat kembang api yang indah di section berikutnya!</p>
+                    <div class="spacer-sm"></div>
+                    <a href="#fireworks" class="glow-btn" style="padding: 12px 28px; font-size: 14px; text-decoration: none;">
+                        🎆 Lihat Kembang Api
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: FIREWORKS                            -->
+    <!-- ============================================= -->
+    <section class="fireworks-section" id="fireworks">
+        <canvas id="fireworks-canvas"></canvas>
+        <div class="fireworks-content">
+            <h2 class="fireworks-title reveal">Kembang Api untuk Nadia 🎆</h2>
+            <p class="fireworks-subtitle reveal">Klik tombol atau klik di area ini untuk meluncurkan kembang api!</p>
+            <button class="firework-btn reveal" onclick="launchFirework()">🎆 Luncurkan!</button>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: ALASAN MENCINTAIMU                   -->
+    <!-- ============================================= -->
+    <section class="kata-cinta-section" id="alasan" style="background: linear-gradient(180deg, #0a0a0a 0%, #0e070b 50%, #0a0a0a 100%);">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Alasan Aku Mengagumi Nadia 🌹</h2>
+                <p class="section-subtitle">Setiap alasan berasal dari ketulusan hati yang paling dalam ✨</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">💕</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="kata-grid">
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">01</span>
+                    <span class="kata-card-emoji">💫</span>
+                    <p class="kata-card-text">
+                        Karena kebaikan hatimu
+                        yang begitu tulus dan murni.
+                        Kamu memperlakukan setiap orang
+                        dengan penuh kelembutan.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">02</span>
+                    <span class="kata-card-emoji">🌟</span>
+                    <p class="kata-card-text">
+                        Karena semangatmu
+                        yang tidak pernah padam.
+                        Kamu selalu bangkit
+                        meskipun dunia membuatmu jatuh.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">03</span>
+                    <span class="kata-card-emoji">🦋</span>
+                    <p class="kata-card-text">
+                        Karena cara kamu tersenyum
+                        yang bisa mengubah hari buruk
+                        menjadi hari yang penuh harapan.
+                        Senyummu adalah sihir.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">04</span>
+                    <span class="kata-card-emoji">📚</span>
+                    <p class="kata-card-text">
+                        Karena kecerdasanmu
+                        yang membuatku selalu kagum.
+                        Kamu memiliki pikiran yang indah
+                        dan cara pandang yang unik.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">05</span>
+                    <span class="kata-card-emoji">🌈</span>
+                    <p class="kata-card-text">
+                        Karena kamu menjadi warna
+                        di kanvas kehidupan yang kadang kelabu.
+                        Kehadiranmu membuat
+                        segalanya lebih cerah.
+                    </p>
+                </div>
+
+                <div class="kata-card reveal">
+                    <span class="kata-card-number">06</span>
+                    <span class="kata-card-emoji">🌺</span>
+                    <p class="kata-card-text">
+                        Karena kamu tidak berusaha
+                        menjadi orang lain.
+                        Kamu adalah kamu — apa adanya —
+                        dan itu sudah sempurna bagiku.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: PUISI MALAM                          -->
+    <!-- ============================================= -->
+    <section class="perasaan-section" id="puisi-malam" style="background: linear-gradient(180deg, #0a0a0a 0%, #0c0610 50%, #0a0a0a 100%);">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Puisi Malam untuk Nadia 🌙</h2>
+                <p class="section-subtitle">Ditulis di keheningan malam, ketika hati berbicara 🌟</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🌙</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="perasaan-content">
+                <div class="perasaan-text reveal">
+                    Malam ini bulan berbisik,
+                    ia bertanya — apakah ada seseorang
+                    yang sedang <span class="perasaan-highlight">merindukanmu sepertiku?</span>
+                    Dan aku tersenyum,
+                    karena jawabannya sudah jelas:
+                    tentu saja ada. Di sini. Selalu.
+                </div>
+
+                <div class="perasaan-emoji reveal">🌙</div>
+
+                <div class="perasaan-text reveal">
+                    Ketika malam semakin larut
+                    dan dunia mulai tertidur,
+                    aku masih terjaga —
+                    bukan karena insomnia,
+                    tapi karena <span class="perasaan-highlight">hatiku terlalu sibuk
+                    memikirkanmu</span> untuk bisa beristirahat.
+                </div>
+
+                <div class="perasaan-emoji reveal">⭐</div>
+
+                <div class="perasaan-text reveal">
+                    Nadia, jika malam ini
+                    kamu sedang menatap langit yang sama,
+                    aku ingin kamu tahu
+                    bahwa ada <span class="perasaan-highlight">satu bintang</span> yang bersinar
+                    khusus untukmu —
+                    bintang harapan, bintang doa,
+                    bintang yang tidak pernah lelah
+                    menjagamu dari kejauhan.
+                </div>
+
+                <div class="perasaan-emoji reveal">✨</div>
+
+                <div class="big-quote-card reveal">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                    <p class="big-quote-text">
+                        "Malam ini aku menulis namamu<br>
+                        di langit hatiku,<br>
+                        berharap <span class="text-gradient">bintang-bintang</span><br>
+                        bisa membawa pesanku padamu:<br>
+                        bahwa kamu dicintai,<br>
+                        hari ini dan selamanya."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: KENANGAN KECIL                       -->
+    <!-- ============================================= -->
+    <section class="whisper-section" id="kenangan" style="background: linear-gradient(180deg, #0a0a0a 0%, #0e0a0c 50%, #0a0a0a 100%);">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Hal-Hal Kecil yang Bermakna 🌸</h2>
+                <p class="section-subtitle">Keindahan terletak pada hal-hal kecil yang sering kita lupakan 💖</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🌷</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="whisper-grid">
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">☕</span>
+                    <p class="whisper-item-text">Aku membayangkan suatu hari bisa menikmati secangkir kopi bersamamu, berbagi cerita tentang mimpi-mimpi kita.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">📚</span>
+                    <p class="whisper-item-text">Aku ingin membacakan puisi untukmu di sore hari yang tenang, saat dunia terasa seperti milik kita berdua.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🌅</span>
+                    <p class="whisper-item-text">Menyaksikan matahari terbenam bersamamu — itulah salah satu harapan kecil yang kusimpan dalam hati.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🎶</span>
+                    <p class="whisper-item-text">Mendengarkan lagu favorit bersama, membiarkan melodi berbicara saat kata-kata tak cukup.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🚶</span>
+                    <p class="whisper-item-text">Berjalan berdampingan di jalan yang sunyi, menikmati keheningan yang nyaman tanpa perlu kata-kata.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">⭐</span>
+                    <p class="whisper-item-text">Menghitung bintang bersama di malam yang cerah, sambil berbagi harapan untuk masa depan kita.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🌻</span>
+                    <p class="whisper-item-text">Tertawa bersama tanpa alasan, karena kebahagiaan sejati tidak selalu membutuhkan alasan.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🕊️</span>
+                    <p class="whisper-item-text">Berdoa bersama, memohon kebaikan untuk satu sama lain, karena doa bersama adalah ikatan terkuat.</p>
+                </div>
+                <div class="whisper-item reveal">
+                    <span class="whisper-item-emoji">🌿</span>
+                    <p class="whisper-item-text">Duduk di taman yang hijau, menikmati angin sepoi-sepoi sambil membicarakan rencana indah untuk hari esok.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: REFLEKSI CINTA                       -->
+    <!-- ============================================= -->
+    <section class="sastra-section" id="refleksi" style="background: linear-gradient(180deg, #0a0a0a 0%, #100810 50%, #0a0a0a 100%);">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Refleksi tentang Cinta 💭</h2>
+                <p class="section-subtitle">Pemikiran mendalam tentang arti cinta yang sesungguhnya 🌹</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">💫</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="sastra-grid">
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">🔑</span>
+                    <p class="sastra-card-text">
+                        Cinta sejati bukan tentang menemukan orang yang sempurna,
+                        tetapi tentang menemukan seseorang
+                        yang membuatmu ingin menjadi
+                        versi terbaik dari dirimu sendiri.
+                    </p>
+                    <span class="sastra-card-author">— Refleksi Pertama</span>
+                </div>
+
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">🌊</span>
+                    <p class="sastra-card-text">
+                        Cinta itu seperti lautan —
+                        kadang tenang, kadang bergelombang.
+                        Tapi yang membuatnya indah
+                        adalah kesetiaannya untuk selalu kembali
+                        ke pantai yang sama.
+                    </p>
+                    <span class="sastra-card-author">— Refleksi Kedua</span>
+                </div>
+
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">🕰️</span>
+                    <p class="sastra-card-text">
+                        Waktu mungkin mengubah segalanya,
+                        tapi cinta yang tulus
+                        adalah satu hal yang tetap sama —
+                        ia tidak mengenal musim,
+                        ia abadi.
+                    </p>
+                    <span class="sastra-card-author">— Refleksi Ketiga</span>
+                </div>
+
+                <div class="sastra-card reveal">
+                    <span class="sastra-card-icon">🏔️</span>
+                    <p class="sastra-card-text">
+                        Cinta itu sabar.
+                        Ia tidak terburu-buru,
+                        ia tidak memaksa.
+                        Ia menunggu dengan tenang,
+                        percaya bahwa waktu yang indah
+                        pasti akan datang.
+                    </p>
+                    <span class="sastra-card-author">— Refleksi Keempat</span>
+                </div>
+            </div>
+
+            <div class="spacer-md"></div>
+
+            <!-- Tambahan Puisi Besar -->
+            <div class="puisi-besar reveal">
+                <span class="nama-deco">❤️</span>
+                <p class="puisi-besar-text">
+                    Aku belajar bahwa <span class="highlight">cinta</span><br>
+                    bukan hanya kata-kata manis,<br>
+                    bukan hanya hadiah yang indah,<br>
+                    bukan hanya janji yang muluk.<br><br>
+                    Cinta adalah <span class="highlight">kehadiran</span> —<br>
+                    ketika dunia terasa gelap,<br>
+                    ketika hati terasa berat,<br>
+                    ketika mata terasa lelah.<br><br>
+                    Dan untuk Nadia,<br>
+                    aku ingin menjadi <span class="highlight">kehadiran</span> itu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION: PESAN TERAKHIR SEBELUM FOOTER        -->
+    <!-- ============================================= -->
+    <section class="perasaan-section" id="pesan-terakhir" style="background: linear-gradient(180deg, #0a0a0a 0%, #0d080e 50%, #0a0a0a 100%);">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Satu Hal Terakhir... 💌</h2>
+                <p class="section-subtitle">Sebelum kamu menutup halaman ini ❤️</p>
+            </div>
+
+            <div class="section-divider reveal">
+                <span class="line"></span>
+                <span class="icon">🌹</span>
+                <span class="line"></span>
+            </div>
+
+            <div class="perasaan-content">
+                <div class="big-quote-card reveal">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                    <p class="big-quote-text">
+                        "Nadia,<br><br>
+                        Jika ada satu hal<br>
+                        yang ingin kusampaikan<br>
+                        sebelum kamu menutup halaman ini,<br>
+                        itu adalah:<br><br>
+                        <span class="text-gradient">Kamu berharga.</span><br>
+                        <span class="text-gradient">Kamu dicintai.</span><br>
+                        <span class="text-gradient">Kamu luar biasa.</span><br><br>
+                        Jangan pernah lupa itu.<br>
+                        Hari ini, besok, dan selamanya."
+                    </p>
+                </div>
+
+                <div class="perasaan-emoji reveal">💖</div>
+
+                <div class="perasaan-text reveal">
+                    Terima kasih sudah membaca sampai sini, Nadia.
+                    Setiap kata di website ini
+                    ditulis dengan <span class="perasaan-highlight">penuh cinta</span>,
+                    dengan harapan bahwa ia bisa
+                    membuat harimu sedikit lebih indah.
+                </div>
+
+                <div class="perasaan-emoji reveal">🌹</div>
+
+                <div class="perasaan-text reveal">
+                    Dan ingatlah —
+                    di manapun kamu berada,
+                    apapun yang kamu rasakan,
+                    ada seseorang yang <span class="perasaan-highlight">tidak pernah berhenti mendoakanmu</span>.
+                    Seseorang yang percaya padamu,
+                    seseorang yang mengagumi keindahan hatimu,
+                    seseorang yang berharap
+                    kamu selalu dilimpahi kebahagiaan.
+                </div>
+
+                <div class="rose-decoration reveal">
+                    <span>🌹</span>
+                    <span>💖</span>
+                    <span>🌹</span>
+                    <span>💖</span>
+                    <span>🌹</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FOOTER                                        -->
+    <!-- ============================================= -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-message reveal">
+                <p>
+                    Nadia,<br>
+                    jika suatu hari kamu membaca ini,<br>
+                    aku hanya ingin kamu tahu<br>
+                    bahwa hatiku pernah menemukan rumahnya<br>
+                    di dalam namamu.
+                </p>
+            </div>
+
+            <div class="footer-hearts reveal">
+                <span>❤️</span>
+                <span>🌹</span>
+                <span>💖</span>
+                <span>🌹</span>
+                <span>❤️</span>
+            </div>
+
+            <div class="delicate-sep">
+                <span class="dash"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dash"></span>
+            </div>
+
+            <div class="footer-signature reveal">
+                Untuk Nadia ❤️
+            </div>
+
+            <div class="rose-decoration reveal">
+                <span>🌹</span>
+                <span>🌸</span>
+                <span>💐</span>
+                <span>🌸</span>
+                <span>🌹</span>
+            </div>
+
+            <div class="footer-made-with reveal">
+                Dibuat dengan <span>❤️</span> dan ketulusan
+            </div>
+
+            <div class="footer-copyright reveal">
+                © 2024 — Sebuah hadiah digital untuk Nadia
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================= -->
+    <!-- MODAL POPUP                                   -->
+    <!-- ============================================= -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <span class="modal-icon">💌</span>
+            <h3 class="modal-title">Pesan Spesial untuk Nadia</h3>
+            <p class="modal-text" id="modal-message">
+                Nadia, jika kamu membaca ini,
+                tersenyumlah — karena saat ini ada seseorang
+                yang sedang memikirkanmu
+                dan berharap kamu selalu bahagia.
+                Kamu luar biasa, jangan pernah lupa itu. ❤️
+            </p>
+            <button class="modal-btn" onclick="closeModal()">
+                Terima Kasih 💖
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- MUSIC BUTTON                                  -->
+    <!-- ============================================= -->
+    <button class="music-btn" id="music-btn" onclick="toggleMusic()" title="Play/Pause Music">
+        <div class="music-bars">
+            <div class="music-bar"></div>
+            <div class="music-bar"></div>
+            <div class="music-bar"></div>
+            <div class="music-bar"></div>
+        </div>
+    </button>
+
+    <!-- ============================================= -->
+    <!-- BACK TO TOP BUTTON                            -->
+    <!-- ============================================= -->
+    <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" title="Kembali ke Atas">
+        ▲
+    </button>
+
+    <!-- ============================================= -->
+    <!-- JAVASCRIPT                                    -->
+    <!-- ============================================= -->
+    <script>
+        /* ============================================= */
+        /* PRELOADER                                     */
+        /* ============================================= */
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var preloader = document.getElementById('preloader');
+                preloader.classList.add('hidden');
+                // Start typing animation after preloader
+                setTimeout(startTyping, 500);
+                // Start floating hearts
+                startFloatingHearts();
+            }, 2800);
+        });
+
+        /* ============================================= */
+        /* TYPING ANIMATION                              */
+        /* ============================================= */
+        var typingTexts = [
+            'Mungkin kamu belum tahu,',
+            'tetapi ada satu hati',
+            'yang selalu menyebut namamu',
+            'dalam setiap doanya. ❤️'
+        ];
+        var typingIndex = 0;
+        var charIndex = 0;
+        var currentFullText = '';
+        var isDeleting = false;
+        var typingSpeed = 60;
+        var deletingSpeed = 30;
+        var pauseTime = 2000;
+        var lineBreakPause = 800;
+        var typingElement = document.getElementById('typing-text');
+
+        function startTyping() {
+            // Build the full text with line breaks
+            typeNextLine();
+        }
+
+        function typeNextLine() {
+            if (typingIndex >= typingTexts.length) {
+                // All lines typed, wait then restart
+                setTimeout(function() {
+                    // Clear and restart
+                    currentFullText = '';
+                    typingIndex = 0;
+                    charIndex = 0;
+                    typingElement.innerHTML = '';
+                    typeNextLine();
+                }, pauseTime * 2);
+                return;
+            }
+
+            var currentLine = typingTexts[typingIndex];
+
+            if (charIndex <= currentLine.length) {
+                var displayText = currentFullText + currentLine.substring(0, charIndex);
+                typingElement.innerHTML = displayText.replace(/\n/g, '<br>');
+                charIndex++;
+                setTimeout(typeNextLine, typingSpeed);
+            } else {
+                // Line complete
+                currentFullText += currentLine + '\n';
+                typingIndex++;
+                charIndex = 0;
+                setTimeout(typeNextLine, lineBreakPause);
+            }
+        }
+
+        /* ============================================= */
+        /* FLOATING HEARTS                               */
+        /* ============================================= */
+        var heartsContainer = document.getElementById('floating-hearts');
+        var heartEmojis = ['❤️', '💖', '💕', '💗', '💓', '🌹', '🦋', '✨', '🌸', '💫'];
+        var maxFloatingHearts = 15;
+
+        function createFloatingHeart() {
+            if (heartsContainer.children.length >= maxFloatingHearts) return;
+
+            var heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+
+            var size = Math.random() * 20 + 14;
+            heart.style.fontSize = size + 'px';
+            heart.style.left = Math.random() * 100 + '%';
+
+            var duration = Math.random() * 8 + 8;
+            heart.style.animationDuration = duration + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+
+            heartsContainer.appendChild(heart);
+
+            setTimeout(function() {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, (duration + 2) * 1000);
+        }
+
+        function startFloatingHearts() {
+            // Create initial hearts
+            for (var i = 0; i < 5; i++) {
+                setTimeout(createFloatingHeart, i * 500);
+            }
+            // Continue creating hearts
+            setInterval(createFloatingHeart, 2000);
+        }
+
+        /* ============================================= */
+        /* PARTICLE BACKGROUND                           */
+        /* ============================================= */
+        var particleCanvas = document.getElementById('particles-canvas');
+        var pCtx = particleCanvas.getContext('2d');
+        var particles = [];
+        var particleCount = 50;
+
+        function resizeParticleCanvas() {
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
+        }
+
+        resizeParticleCanvas();
+        window.addEventListener('resize', resizeParticleCanvas);
+
+        function Particle() {
+            this.x = Math.random() * particleCanvas.width;
+            this.y = Math.random() * particleCanvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.3;
+            this.speedY = (Math.random() - 0.5) * 0.3;
+            this.opacity = Math.random() * 0.5 + 0.1;
+            this.opacityChange = (Math.random() - 0.5) * 0.005;
+        }
+
+        Particle.prototype.update = function() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            this.opacity += this.opacityChange;
+
+            if (this.opacity <= 0.05 || this.opacity >= 0.6) {
+                this.opacityChange *= -1;
+            }
+
+            if (this.x < 0) this.x = particleCanvas.width;
+            if (this.x > particleCanvas.width) this.x = 0;
+            if (this.y < 0) this.y = particleCanvas.height;
+            if (this.y > particleCanvas.height) this.y = 0;
+        };
+
+        Particle.prototype.draw = function() {
+            pCtx.beginPath();
+            pCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            pCtx.fillStyle = 'rgba(231, 76, 111, ' + this.opacity + ')';
+            pCtx.fill();
+        };
+
+        // Initialize particles
+        for (var i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            pCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+
+            // Draw connections
+            for (var i = 0; i < particles.length; i++) {
+                for (var j = i + 1; j < particles.length; j++) {
+                    var dx = particles[i].x - particles[j].x;
+                    var dy = particles[i].y - particles[j].y;
+                    var dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 150) {
+                        var opacity = (1 - dist / 150) * 0.1;
+                        pCtx.beginPath();
+                        pCtx.moveTo(particles[i].x, particles[i].y);
+                        pCtx.lineTo(particles[j].x, particles[j].y);
+                        pCtx.strokeStyle = 'rgba(231, 76, 111, ' + opacity + ')';
+                        pCtx.lineWidth = 0.5;
+                        pCtx.stroke();
+                    }
+                }
+            }
+
+            // Update and draw particles
+            for (var k = 0; k < particles.length; k++) {
+                particles[k].update();
+                particles[k].draw();
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+
+        /* ============================================= */
+        /* NAVBAR SCROLL EFFECT                          */
+        /* ============================================= */
+        var navbar = document.getElementById('navbar');
+        var backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', function() {
+            var scrollY = window.scrollY || window.pageYOffset;
+
+            // Navbar
+            if (scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Back to top button
+            if (scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* ============================================= */
+        /* HAMBURGER MENU                                */
+        /* ============================================= */
+        var hamburger = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        function closeMobileMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        /* ============================================= */
+        /* SCROLL REVEAL ANIMATION                       */
+        /* ============================================= */
+        function revealElements() {
+            var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+            var windowHeight = window.innerHeight;
+
+            reveals.forEach(function(el, index) {
+                var elementTop = el.getBoundingClientRect().top;
+                var revealPoint = 100;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    // Add stagger delay
+                    var delay = 0;
+                    var parent = el.parentElement;
+                    if (parent) {
+                        var siblings = parent.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+                        var sibIndex = Array.from(siblings).indexOf(el);
+                        delay = sibIndex * 0.1;
+                    }
+                    el.style.transitionDelay = delay + 's';
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealElements);
+        window.addEventListener('load', function() {
+            setTimeout(revealElements, 3000);
+        });
+
+        /* ============================================= */
+        /* POEM CAROUSEL                                 */
+        /* ============================================= */
+        var currentPoem = 0;
+        var totalPoems = 5;
+
+        function showPoem(index) {
+            var slides = document.querySelectorAll('.poem-slide');
+            var dots = document.querySelectorAll('.poem-dot');
+
+            slides.forEach(function(slide) {
+                slide.classList.remove('active');
+            });
+            dots.forEach(function(dot) {
+                dot.classList.remove('active');
+            });
+
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentPoem = index;
+        }
+
+        function nextPoem() {
+            var next = (currentPoem + 1) % totalPoems;
+            showPoem(next);
+        }
+
+        function prevPoem() {
+            var prev = (currentPoem - 1 + totalPoems) % totalPoems;
+            showPoem(prev);
+        }
+
+        function goToPoem(index) {
+            showPoem(index);
+        }
+
+        // Auto-advance poems
+        setInterval(function() {
+            nextPoem();
+        }, 7000);
+
+        /* ============================================= */
+        /* RANDOM LOVE QUOTES GENERATOR                  */
+        /* ============================================= */
+        var loveQuotes = [
+            "Kamu adalah alasan mengapa aku percaya bahwa cinta itu nyata. ❤️",
+            "Di antara jutaan bintang, kamu adalah yang paling bersinar di mataku. ✨",
+            "Setiap kali aku menyebut namamu, hatiku tersenyum. 😊",
+            "Cinta ini bukan tentang waktu yang tepat, tapi tentang hati yang tepat — dan hatiku sudah memilihmu. 💖",
+            "Jika ada satu hal yang ingin kubawa ke masa depan, itu adalah senyummu. 🌹",
+            "Namamu adalah puisi terindah yang pernah hatiku tulis. 📝",
+            "Kamu bukan hanya bagian dari hidupku — kamu adalah alasan hidupku terasa bermakna. 🌟",
+            "Setiap detik bersamamu adalah detik yang tidak ingin kulewatkan. ⏰",
+            "Jika rindu bisa dikirim lewat angin, maka setiap hembusan adalah pesanku untukmu. 🌬️",
+            "Kamu adalah rumah yang tidak pernah ingin kutinggalkan. 🏠",
+            "Di setiap doaku, namamu selalu menjadi yang pertama kuucapkan. 🤲",
+            "Cinta ini sederhana — aku hanya ingin melihatmu bahagia, selalu. 🌈",
+            "Jika aku bisa memilih satu hal untuk dijaga seumur hidup, aku memilih senyummu. 😊",
+            "Kamu adalah keajaiban kecil yang Tuhan kirimkan untuk mempercantik duniaku. 🦋",
+            "Setiap langkahmu adalah puisi, dan aku tidak pernah bosan membacanya. 📖",
+            "Nadia, kamu adalah jawaban dari setiap pertanyaan hatiku. 💫",
+            "Di mataku, kamu lebih indah dari seribu matahari terbenam. 🌅",
+            "Cinta untukmu mengalir seperti sungai — tenang, dalam, dan tidak pernah berhenti. 🌊",
+            "Kamu adalah cahaya di ujung terowongan yang selalu kutunggu. 💡",
+            "Aku tidak butuh dunia yang sempurna — aku hanya butuh kamu ada di dalamnya. 🌍"
+        ];
+
+        function generateQuote() {
+            var quoteEl = document.getElementById('random-quote');
+            var randomIndex = Math.floor(Math.random() * loveQuotes.length);
+
+            quoteEl.style.opacity = '0';
+            quoteEl.style.transform = 'translateY(10px)';
+
+            setTimeout(function() {
+                quoteEl.textContent = loveQuotes[randomIndex];
+                quoteEl.style.transition = 'all 0.5s ease';
+                quoteEl.style.opacity = '1';
+                quoteEl.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        /* ============================================= */
+        /* SEMANGAT GENERATOR                            */
+        /* ============================================= */
+        var semangatMessages = [
+            "Nadia, hari ini mungkin berat, tapi kamu lebih kuat! Percayalah pada dirimu. 💪✨",
+            "Setiap hari adalah kesempatan baru. Kamu pasti bisa! 🌟",
+            "Nadia, ingat: kamu sudah melewati hari-hari yang lebih sulit dari ini. Kamu hebat! 🌈",
+            "Jangan menyerah, Nadia. Mimpimu sedang menunggumu di depan sana. 🚀",
+            "Kamu layak mendapatkan semua yang baik. Teruslah berjuang! 💎",
+            "Hari ini, berbaik hatilah pada dirimu sendiri. Kamu pantas dicintai. ❤️",
+            "Langkah kecil tetap langkah. Kamu sedang bergerak maju, Nadia! 🌻",
+            "Dunia membutuhkan cahayamu. Teruslah bersinar! ☀️",
+            "Nadia, kamu tidak sendirian. Ada yang selalu mendoakanmu. 🤲",
+            "Senyummu hari ini bisa menjadi awal dari sesuatu yang luar biasa. 😊✨",
+            "Percayalah pada waktu Tuhan. Semua akan indah pada waktunya. 🌸",
+            "Kamu sudah cukup baik, Nadia. Berhentilah menghakimi dirimu sendiri. 🦋",
+            "Setiap tantangan adalah batu loncatan menuju versi terbaikmu. 💫",
+            "Tarik napas, hembuskan. Kamu bisa melewati hari ini. 🌿",
+            "Nadia, jangan lupa: kamu dicintai lebih dari yang kamu tahu. 💖"
+        ];
+
+        function generateSemangat() {
+            var semangatEl = document.getElementById('semangat-text');
+            var randomIndex = Math.floor(Math.random() * semangatMessages.length);
+
+            semangatEl.classList.remove('show');
+
+            setTimeout(function() {
+                semangatEl.textContent = semangatMessages[randomIndex];
+                semangatEl.classList.add('show');
+            }, 300);
+        }
+
+        /* ============================================= */
+        /* MODAL POPUP                                   */
+        /* ============================================= */
+        var modalMessages = [
+            "Nadia, jika kamu membaca ini, tersenyumlah — karena saat ini ada seseorang yang sedang memikirkanmu dan berharap kamu selalu bahagia. Kamu luar biasa, jangan pernah lupa itu. ❤️",
+            "Hai Nadia! Ini adalah pesan rahasia: kamu adalah salah satu manusia terbaik di dunia ini. Dunia beruntung memilikimu. Jangan pernah berhenti menjadi dirimu sendiri. 🌟",
+            "Nadia sayang, aku ingin kamu tahu bahwa di suatu tempat, ada seseorang yang selalu mendoakan yang terbaik untukmu. Hari ini dan selamanya. 💖",
+            "Pesan spesial: Nadia, kebaikan hatimu adalah hadiah terbesar bagi dunia ini. Teruslah berbagi cahaya, karena cahayamu menerangi banyak hati. ✨",
+            "Nadia, jika hari ini terasa berat, ingatlah bahwa besok adalah halaman baru. Dan kamu selalu punya kekuatan untuk menulis cerita yang lebih indah. 📖💕"
+        ];
+
+        function openModal() {
+            var overlay = document.getElementById('modal-overlay');
+            var messageEl = document.getElementById('modal-message');
+            var randomMsg = modalMessages[Math.floor(Math.random() * modalMessages.length)];
+            messageEl.textContent = randomMsg;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event && event.target !== event.currentTarget && !event.target.classList.contains('modal-close') && !event.target.classList.contains('modal-btn')) {
+                return;
+            }
+            var overlay = document.getElementById('modal-overlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        /* ============================================= */
+        /* ENVELOPE ANIMATION                            */
+        /* ============================================= */
+        function toggleEnvelope() {
+            var envelope = document.getElementById('envelope');
+            envelope.classList.toggle('open');
+        }
+
+        /* ============================================= */
+        /* COUNTDOWN TIMER                               */
+        /* ============================================= */
+        function updateCountdown() {
+            // Countdown to next New Year
+            var now = new Date();
+            var nextYear = new Date(now.getFullYear() + 1, 0, 1);
+            var diff = nextYear - now;
+
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+            document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+            document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        /* ============================================= */
+        /* CONFETTI EFFECT                               */
+        /* ============================================= */
+        var confettiCanvas = document.getElementById('confetti-canvas');
+        var confCtx = confettiCanvas.getContext('2d');
+        var confettiPieces = [];
+        var confettiActive = false;
+
+        function resizeConfettiCanvas() {
+            confettiCanvas.width = window.innerWidth;
+            confettiCanvas.height = window.innerHeight;
+        }
+
+        resizeConfettiCanvas();
+        window.addEventListener('resize', resizeConfettiCanvas);
+
+        function ConfettiPiece() {
+            this.x = Math.random() * confettiCanvas.width;
+            this.y = -20;
+            this.size = Math.random() * 8 + 4;
+            this.speedY = Math.random() * 3 + 2;
+            this.speedX = (Math.random() - 0.5) * 4;
+            this.rotation = Math.random() * 360;
+            this.rotSpeed = (Math.random() - 0.5) * 10;
+            this.color = ['#e74c6f', '#ff6b9d', '#f7a1b5', '#c0392b', '#f39c12', '#ff6b6b', '#ffd700', '#ff69b4', '#da70d6'][Math.floor(Math.random() * 9)];
+            this.opacity = 1;
+            this.shape = Math.random() > 0.5 ? 'rect' : 'circle';
+        }
+
+        ConfettiPiece.prototype.update = function() {
+            this.y += this.speedY;
+            this.x += this.speedX;
+            this.rotation += this.rotSpeed;
+            this.opacity -= 0.003;
+            this.speedX *= 0.99;
+
+            // Add gravity and wind
+            this.speedY += 0.02;
+            this.speedX += (Math.random() - 0.5) * 0.1;
+        };
+
+        ConfettiPiece.prototype.draw = function() {
+            confCtx.save();
+            confCtx.translate(this.x, this.y);
+            confCtx.rotate(this.rotation * Math.PI / 180);
+            confCtx.globalAlpha = Math.max(0, this.opacity);
+            confCtx.fillStyle = this.color;
+
+            if (this.shape === 'rect') {
+                confCtx.fillRect(-this.size / 2, -this.size / 4, this.size, this.size / 2);
+            } else {
+                confCtx.beginPath();
+                confCtx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+                confCtx.fill();
+            }
+
+            confCtx.restore();
+        };
+
+        function launchConfetti() {
+            confettiActive = true;
+            // Create confetti pieces
+            for (var i = 0; i < 150; i++) {
+                setTimeout(function() {
+                    confettiPieces.push(new ConfettiPiece());
+                }, i * 15);
+            }
+
+            // Stop after a while
+            setTimeout(function() {
+                confettiActive = false;
+            }, 4000);
+        }
+
+        function animateConfetti() {
+            confCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+            for (var i = confettiPieces.length - 1; i >= 0; i--) {
+                confettiPieces[i].update();
+                confettiPieces[i].draw();
+
+                // Remove if off screen or fully transparent
+                if (confettiPieces[i].y > confettiCanvas.height + 50 || confettiPieces[i].opacity <= 0) {
+                    confettiPieces.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animateConfetti);
+        }
+
+        animateConfetti();
+
+        /* ============================================= */
+        /* FIREWORKS CANVAS ANIMATION                    */
+        /* ============================================= */
+        var fwCanvas = document.getElementById('fireworks-canvas');
+        var fwCtx = fwCanvas.getContext('2d');
+        var fireworks = [];
+        var fwParticles = [];
+
+        function resizeFireworksCanvas() {
+            var section = document.querySelector('.fireworks-section');
+            if (section) {
+                fwCanvas.width = section.offsetWidth;
+                fwCanvas.height = section.offsetHeight;
+            }
+        }
+
+        resizeFireworksCanvas();
+        window.addEventListener('resize', resizeFireworksCanvas);
+
+        function Firework(x, y, targetX, targetY) {
+            this.x = x;
+            this.y = y;
+            this.targetX = targetX;
+            this.targetY = targetY;
+            this.speed = 3;
+            this.angle = Math.atan2(targetY - y, targetX - x);
+            this.velocityX = Math.cos(this.angle) * this.speed;
+            this.velocityY = Math.sin(this.angle) * this.speed;
+            this.distanceToTarget = Math.sqrt(Math.pow(targetX - x, 2) + Math.pow(targetY - y, 2));
+            this.distanceTraveled = 0;
+            this.trail = [];
+            this.trailLength = 5;
+            this.alive = true;
+        }
+
+        Firework.prototype.update = function() {
+            this.trail.push({ x: this.x, y: this.y });
+            if (this.trail.length > this.trailLength) {
+                this.trail.shift();
+            }
+
+            this.x += this.velocityX;
+            this.y += this.velocityY;
+
+            this.distanceTraveled = Math.sqrt(
+                Math.pow(this.x - (this.x - this.velocityX * (this.distanceTraveled / this.speed || 1)), 2) +
+                Math.pow(this.y - (this.y - this.velocityY * (this.distanceTraveled / this.speed || 1)), 2)
+            );
+
+            var currentDist = Math.sqrt(Math.pow(this.targetX - this.x, 2) + Math.pow(this.targetY - this.y, 2));
+
+            if (currentDist < 10) {
+                this.explode();
+                this.alive = false;
+            }
+        };
+
+        Firework.prototype.explode = function() {
+            var colors = ['#e74c6f', '#ff6b9d', '#f7a1b5', '#ffd700', '#ff6b6b', '#da70d6', '#ff69b4', '#f39c12'];
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            var particleCount = 40 + Math.floor(Math.random() * 30);
+
+            for (var i = 0; i < particleCount; i++) {
+                var angle = (Math.PI * 2 / particleCount) * i;
+                var speed = Math.random() * 4 + 1;
+                fwParticles.push(new FWParticle(this.targetX, this.targetY, angle, speed, color));
+            }
+        };
+
+        Firework.prototype.draw = function() {
+            // Draw trail
+            for (var i = 0; i < this.trail.length; i++) {
+                var opacity = (i / this.trail.length) * 0.5;
+                fwCtx.beginPath();
+                fwCtx.arc(this.trail[i].x, this.trail[i].y, 2, 0, Math.PI * 2);
+                fwCtx.fillStyle = 'rgba(231, 76, 111, ' + opacity + ')';
+                fwCtx.fill();
+            }
+
+            // Draw head
+            fwCtx.beginPath();
+            fwCtx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+            fwCtx.fillStyle = '#ff6b9d';
+            fwCtx.fill();
+        };
+
+        function FWParticle(x, y, angle, speed, color) {
+            this.x = x;
+            this.y = y;
+            this.velocityX = Math.cos(angle) * speed;
+            this.velocityY = Math.sin(angle) * speed;
+            this.color = color;
+            this.opacity = 1;
+            this.decay = Math.random() * 0.015 + 0.01;
+            this.gravity = 0.04;
+            this.size = Math.random() * 3 + 1;
+            this.trail = [];
+            this.trailLength = 4;
+        }
+
+        FWParticle.prototype.update = function() {
+            this.trail.push({ x: this.x, y: this.y });
+            if (this.trail.length > this.trailLength) {
+                this.trail.shift();
+            }
+
+            this.velocityY += this.gravity;
+            this.x += this.velocityX;
+            this.y += this.velocityY;
+            this.velocityX *= 0.98;
+            this.velocityY *= 0.98;
+            this.opacity -= this.decay;
+        };
+
+        FWParticle.prototype.draw = function() {
+            // Draw trail
+            for (var i = 0; i < this.trail.length; i++) {
+                var trailOpacity = (i / this.trail.length) * this.opacity * 0.3;
+                fwCtx.beginPath();
+                fwCtx.arc(this.trail[i].x, this.trail[i].y, this.size * 0.5, 0, Math.PI * 2);
+                fwCtx.fillStyle = this.color.replace(')', ', ' + trailOpacity + ')').replace('rgb', 'rgba').replace('#', '');
+                // Use hex color with opacity
+                fwCtx.globalAlpha = trailOpacity;
+                fwCtx.fillStyle = this.color;
+                fwCtx.fill();
+            }
+
+            fwCtx.globalAlpha = this.opacity;
+            fwCtx.beginPath();
+            fwCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            fwCtx.fillStyle = this.color;
+            fwCtx.fill();
+            fwCtx.globalAlpha = 1;
+        };
+
+        function launchFirework() {
+            resizeFireworksCanvas();
+            var startX = Math.random() * fwCanvas.width * 0.6 + fwCanvas.width * 0.2;
+            var startY = fwCanvas.height;
+            var targetX = Math.random() * fwCanvas.width * 0.6 + fwCanvas.width * 0.2;
+            var targetY = Math.random() * fwCanvas.height * 0.4 + fwCanvas.height * 0.1;
+
+            fireworks.push(new Firework(startX, startY, targetX, targetY));
+        }
+
+        // Click on fireworks section to launch
+        document.querySelector('.fireworks-section').addEventListener('click', function(e) {
+            if (e.target.tagName !== 'BUTTON') {
+                resizeFireworksCanvas();
+                var rect = fwCanvas.getBoundingClientRect();
+                var targetX = e.clientX - rect.left;
+                var targetY = e.clientY - rect.top;
+                var startX = targetX + (Math.random() - 0.5) * 100;
+                fireworks.push(new Firework(startX, fwCanvas.height, targetX, targetY));
+            }
+        });
+
+        function animateFireworks() {
+            fwCtx.fillStyle = 'rgba(5, 2, 5, 0.15)';
+            fwCtx.fillRect(0, 0, fwCanvas.width, fwCanvas.height);
+
+            // Update fireworks
+            for (var i = fireworks.length - 1; i >= 0; i--) {
+                fireworks[i].update();
+                fireworks[i].draw();
+                if (!fireworks[i].alive) {
+                    fireworks.splice(i, 1);
+                }
+            }
+
+            // Update particles
+            for (var j = fwParticles.length - 1; j >= 0; j--) {
+                fwParticles[j].update();
+                fwParticles[j].draw();
+                if (fwParticles[j].opacity <= 0) {
+                    fwParticles.splice(j, 1);
+                }
+            }
+
+            requestAnimationFrame(animateFireworks);
+        }
+
+        animateFireworks();
+
+        // Auto launch fireworks periodically
+        setInterval(function() {
+            var section = document.querySelector('.fireworks-section');
+            var rect = section.getBoundingClientRect();
+            // Only auto-launch if section is visible
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                launchFirework();
+            }
+        }, 3000);
+
+        /* ============================================= */
+        /* MUSIC PLAYER (Web Audio API)                  */
+        /* ============================================= */
+        var audioCtx = null;
+        var isPlaying = false;
+        var musicBtn = document.getElementById('music-btn');
+        var oscillator = null;
+        var gainNode = null;
+        var melodyInterval = null;
+
+        // Simple romantic melody using Web Audio API
+        var melodyNotes = [
+            { freq: 523.25, dur: 400 },  // C5
+            { freq: 659.25, dur: 400 },  // E5
+            { freq: 783.99, dur: 600 },  // G5
+            { freq: 659.25, dur: 400 },  // E5
+            { freq: 523.25, dur: 400 },  // C5
+            { freq: 587.33, dur: 600 },  // D5
+            { freq: 523.25, dur: 400 },  // C5
+            { freq: 493.88, dur: 400 },  // B4
+            { freq: 440.00, dur: 600 },  // A4
+            { freq: 523.25, dur: 400 },  // C5
+            { freq: 493.88, dur: 400 },  // B4
+            { freq: 440.00, dur: 600 },  // A4
+            { freq: 392.00, dur: 400 },  // G4
+            { freq: 440.00, dur: 400 },  // A4
+            { freq: 523.25, dur: 800 },  // C5
+            { freq: 0, dur: 400 },       // rest
+        ];
+
+        var noteIndex = 0;
+
+        function playNote(freq, duration) {
+            if (!audioCtx || !isPlaying) return;
+
+            if (freq === 0) return; // rest
+
+            var osc = audioCtx.createOscillator();
+            var gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+            gain.gain.setValueAtTime(0, audioCtx.currentTime);
+            gain.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration / 1000);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start(audioCtx.currentTime);
+            osc.stop(audioCtx.currentTime + duration / 1000);
+        }
+
+        function playMelody() {
+            if (!isPlaying) return;
+
+            var note = melodyNotes[noteIndex];
+            playNote(note.freq, note.dur);
+
+            noteIndex = (noteIndex + 1) % melodyNotes.length;
+
+            melodyInterval = setTimeout(playMelody, note.dur + 50);
+        }
+
+        function toggleMusic() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            if (isPlaying) {
+                isPlaying = false;
+                musicBtn.classList.remove('playing');
+                if (melodyInterval) {
+                    clearTimeout(melodyInterval);
+                }
+            } else {
+                isPlaying = true;
+                musicBtn.classList.add('playing');
+                noteIndex = 0;
+                playMelody();
+            }
+        }
+
+        /* ============================================= */
+        /* COUNTING ANIMATION                            */
+        /* ============================================= */
+        var countingObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var counters = entry.target.querySelectorAll('.counting-number');
+                    counters.forEach(function(counter) {
+                        var target = parseInt(counter.getAttribute('data-target'));
+                        var current = 0;
+                        var increment = Math.ceil(target / 60);
+                        var duration = 2000;
+                        var stepTime = duration / (target / increment);
+
+                        var timer = setInterval(function() {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            counter.textContent = current;
+                        }, stepTime);
+                    });
+                    countingObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        var countingSection = document.querySelector('.counting-section');
+        if (countingSection) {
+            countingObserver.observe(countingSection);
+        }
+
+        /* ============================================= */
+        /* PARALLAX EFFECT (LIGHTWEIGHT)                 */
+        /* ============================================= */
+        var parallaxElements = document.querySelectorAll('.glow-orb');
+
+        function handleParallax() {
+            var scrollY = window.scrollY || window.pageYOffset;
+
+            parallaxElements.forEach(function(el, index) {
+                var speed = (index + 1) * 0.02;
+                var yPos = scrollY * speed;
+                el.style.transform = 'translateY(' + yPos + 'px)';
+            });
+        }
+
+        // Throttle parallax for performance
+        var parallaxTicking = false;
+        window.addEventListener('scroll', function() {
+            if (!parallaxTicking) {
+                requestAnimationFrame(function() {
+                    handleParallax();
+                    parallaxTicking = false;
+                });
+                parallaxTicking = true;
+            }
+        });
+
+        /* ============================================= */
+        /* SMOOTH SCROLL FOR NAV LINKS                   */
+        /* ============================================= */
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    var offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 70;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        /* ============================================= */
+        /* CURSOR HEARTS ON CLICK                        */
+        /* ============================================= */
+        document.addEventListener('click', function(e) {
+            // Don't create hearts when clicking buttons/links
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a')) {
+                return;
+            }
+
+            var heart = document.createElement('div');
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.cssText = 'position:fixed;pointer-events:none;z-index:9998;font-size:24px;transition:all 1s ease;opacity:1;' +
+                'left:' + e.clientX + 'px;top:' + e.clientY + 'px;transform:translate(-50%,-50%) scale(1);';
+
+            document.body.appendChild(heart);
+
+            requestAnimationFrame(function() {
+                heart.style.opacity = '0';
+                heart.style.transform = 'translate(-50%, -80px) scale(0.5)';
+            });
+
+            setTimeout(function() {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 1000);
+        });
+
+        /* ============================================= */
+        /* STAR TWINKLING BACKGROUND                     */
+        /* ============================================= */
+        function createStars() {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                var starsContainer = document.createElement('div');
+                starsContainer.className = 'stars-decoration';
+
+                for (var i = 0; i < 15; i++) {
+                    var star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+                    star.style.setProperty('--delay', (Math.random() * 5) + 's');
+                    starsContainer.appendChild(star);
+                }
+
+                section.style.position = 'relative';
+                section.appendChild(starsContainer);
+            });
+        }
+
+        createStars();
+
+        /* ============================================= */
+        /* EASTER EGG: KONAMI CODE                       */
+        /* ============================================= */
+        var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        var konamiIndex = 0;
+
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    // Trigger special effect
+                    launchConfetti();
+                    setTimeout(launchConfetti, 500);
+                    setTimeout(launchConfetti, 1000);
+                    openModal();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        /* ============================================= */
+        /* PERFORMANCE: REDUCE ANIMATIONS WHEN TAB IS    */
+        /* NOT VISIBLE                                   */
+        /* ============================================= */
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Reduce animations when tab is not visible
+                document.body.style.setProperty('--animation-state', 'paused');
+            } else {
+                document.body.style.setProperty('--animation-state', 'running');
+            }
+        });
+
+        /* ============================================= */
+        /* AUTO POEM TYPING IN HERO                      */
+        /* ============================================= */
+        // Intersection Observer for lazy loading heavy animations
+        var lazyObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(function(section) {
+            lazyObserver.observe(section);
+        });
+
+        /* ============================================= */
+        /* CONSOLE MESSAGE                               */
+        /* ============================================= */
+        console.log('%c❤️ Untuk Nadia ❤️', 'font-size: 24px; color: #e74c6f; font-family: cursive;');
+        console.log('%cWebsite ini dibuat dengan cinta dan ketulusan.', 'font-size: 14px; color: #ff6b9d;');
+        console.log('%c🌹 Semoga Nadia selalu bahagia. 🌹', 'font-size: 14px; color: #e74c6f;');
+
+    </script>
+</body>
+</html>
